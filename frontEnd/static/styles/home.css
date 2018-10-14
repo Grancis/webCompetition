@@ -55,6 +55,7 @@ body{
     background-color: white;
     height: 80px;
     width: 80px;
+    box-shadow: 
 }
 
 .box-arrow img{
@@ -64,7 +65,13 @@ body{
 }
 
 .arrow-left{
-    
+    left: 300px;
+    top: 500px;
+}
+
+.arrow-right{
+    right: 300px;
+    top: 500px;
 }
 
 .box-indicate-bar{
