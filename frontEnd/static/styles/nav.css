@@ -1,0 +1,91 @@
+.box-logo{
+    position: relative;
+    top:30px;
+    left: 100px;
+    width: 400px;
+}
+
+
+
+.title-logo{
+    position: absolute;
+    top:50px;
+    left:190px;
+    color: white;
+}
+
+.title-logo label{
+    display: block;
+}
+
+#title-logo-one{
+    font-family: fzzdh;
+    font-size: 52px;
+}
+
+#title-logo-two{
+    font-family: pf_light;
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-top: 10px;
+}
+
+.box-nav{
+    position: absolute;
+    left: 785px;
+    top:120px;
+}
+
+.box-nav ul li{
+    position: relative;
+    list-style: none;
+    display: inline;
+    /* margin-right: 140px; */
+}
+
+#nav-info{
+    left: 140px;
+}
+#nav-news{
+    left: 280px;
+}
+#nav-project{
+    left: 420px;
+}
+#nav-tools{
+    left: 560px;
+}
+
+.box-nav ul li a{
+    text-decoration: none;
+    font-family: pf_regular;
+    color: white;
+    font-size: 24px;
+}
+
+#nav-tools{
+    margin-right: 0px;
+}
+
+#nav-dot{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #4ee5d8;
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    /* 20 235 475 715 960 */
+    transition: left;
+    transition-duration: 0.5s;
+}
+
+.nav-active{
+    font-family: pf_bold;
+    font-weight: bold;
+}
+
+.box-nav ul li a:hover{
+    font-weight: bold;
+}
+

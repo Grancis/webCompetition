@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>创业盒子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./static/styles/fonts.css">
+    <link rel="stylesheet" type="text/css" href="./static/styles/nav.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/home.css" />
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./static/jslib/nav.js"></script>
+    <script src="./static/jslib/home.js"></script>
+</head>
+<body>
+    <div class="box-body">
+        <div class="box-logo">
+            <img id="logo" src="./static/image/LOGO.png">
+            <div class="title-logo">
+                <label id="title-logo-one">创业盒子</label>
+                <label id="title-logo-two">教你如何开公司</label>
+            </div>
+        </div>
+
+        <div class="box-nav" role="navigation">
+            <ul>
+                <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="#">首页</a></li>
+                <li id="nav-info" onclick="changePage(this)"><a href="#">企业信息</a></li>
+                <li id="nav-news" onclick="changePage(this)"><a href="#">热点新闻</a></li>
+                <li id="nav-project" onclick="changePage(this)"><a href="#">项目展示</a></li>
+                <li id="nav-tools" onclick="changePage(this)"><a href="#">创业工具</a></li>
+            </ul>
+            <div id="nav-dot"></div>
+        </div>
+    </div>
+</body>
+</html>

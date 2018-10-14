@@ -1,0 +1,24 @@
+@font-face{
+    font-family: fzzdh;
+    src: url(../fonts/FZZDH.TTF)
+}
+
+@font-face{
+    font-family: pf_light;
+    src: url(../fonts/PingFang\ Light.ttf)
+}
+
+@font-face{
+    font-family: pf_regular;
+    src: url(../fonts/PingFang\ Regular.ttf)
+}
+
+@font-face{
+    font-family: pf_bold;
+    src: url(../fonts/PingFang\ Bold.ttf)
+}
+
+@font-face{
+    font-family: pf_medium;
+    src: url(../fonts/PingFang\ Medium.ttf)
+}
