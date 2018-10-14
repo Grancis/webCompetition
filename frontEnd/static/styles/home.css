@@ -7,7 +7,7 @@
 body{
     background-image: url(../image/background.png);
     background-size: 100%,100%;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .box-body{
@@ -17,3 +17,80 @@ body{
     background-color: rgba(0, 0, 0, 0.77)
 }
 
+.card-center{
+    position: absolute;
+    left: 460px;
+    top:270px;
+    width: 1000px;
+    height: 540px;
+    transform: scale(1,1);
+    background-color: #f2f9ff;
+    border-radius: 20px;
+}
+
+.card-beside{
+    position: absolute;
+    top: 275px;
+    /* width: 900px;
+    height: 486px; */
+    width: 1000px;
+    height: 540px;
+    transform: scale(0.8,0.8);
+    background-color: #f2f9ff;
+    border-radius: 20px;
+}
+.card-beside-left{
+    left: -490px;
+}
+.card-beside-right{
+    right: -490px;
+}
+.card-beside-hidden{
+    right: -900px;
+}
+
+.box-arrow{
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    height: 80px;
+    width: 80px;
+}
+
+.box-arrow img{
+    position: absolute;
+    left: 25px;
+    top: 25px;
+}
+
+.arrow-left{
+    
+}
+
+.box-indicate-bar{
+    position: absolute;
+    width: 1000px;
+    left: 460px;
+    top: 900px;
+}
+.indicate-bar{
+    position: absolute;
+    height: 2px;
+    width: 160px;
+    background-color: white;
+}
+.bar-1{
+    left: 150px;
+}
+.bar-4{
+    right: 150px;
+}
+.bar-2{
+    left: 330px;
+}
+.bar-3{
+    right: 330px;
+}
+.bar-active{
+    background: orange;
+}
