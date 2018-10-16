@@ -1,17 +1,31 @@
-.box-logo{
-    position: relative;
-    top:30px;
-    left: 100px;
-    width: 400px;
+@keyframes nav-dot{
+    from {top: 0px;}
+    to {top: 36px;}
+
 }
 
 
 
+.box-logo{
+    position: relative;
+    top:1%;
+    left: 9%;
+    width: 25%;
+}
+
+#logo{
+    width: auto;
+    height: auto;
+    max-width:30%;
+    max-height:30%;
+}
+
 .title-logo{
     position: absolute;
     top:50px;
-    left:190px;
+    left:35%;
     color: white;
+
 }
 
 .title-logo label{
@@ -20,64 +34,56 @@
 
 #title-logo-one{
     font-family: fzzdh;
-    font-size: 52px;
+    font-size: 3em;
 }
 
 #title-logo-two{
     font-family: pf_light;
-    font-size: 20px;
-    letter-spacing: 10px;
+    font-size: 1vw;
+    letter-spacing: 0.5vw;
     margin-top: 10px;
 }
 
 .box-nav{
     position: absolute;
-    left: 785px;
-    top:120px;
+    left:40%;
+    top:11%;
+    width:70%;
 }
 
 .box-nav ul li{
+float: left;
+    margin-left: 10%;
     position: relative;
     list-style: none;
     display: inline;
     /* margin-right: 140px; */
 }
 
-#nav-info{
-    left: 140px;
-}
-#nav-news{
-    left: 280px;
-}
-#nav-project{
-    left: 420px;
-}
-#nav-tools{
-    left: 560px;
-}
 
 .box-nav ul li a{
     text-decoration: none;
     font-family: pf_regular;
     color: white;
-    font-size: 24px;
+    font-size: 1em;
 }
 
 #nav-tools{
     margin-right: 0px;
 }
 
-#nav-dot{
+
+.nav-active::after{
+    content: "";
     height: 10px;
     width: 10px;
     border-radius: 50%;
     background-color: #4ee5d8;
     position: absolute;
     top: 36px;
-    left: 20px;
-    /* 20 235 475 715 960 */
-    transition: left;
-    transition-duration: 0.5s;
+    left: 42%;
+    animation: nav-dot 0.5s;
+    animation-timing-function: ease-out;
 }
 
 .nav-active{

@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(../image/background.png);
+    background: url(../image/background.png) no-repeat;
     background-size: 100%,100%;
     overflow: hidden;
 }
@@ -13,16 +13,21 @@ body{
 .box-body{
     position: relative;
     width: 100%;
-    height: 1080px;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.77)
+}
+
+.card{
+    transition: all;
+    transition-duration: 1s;
 }
 
 .card-center{
     position: absolute;
-    left: 460px;
-    top:270px;
-    width: 1000px;
-    height: 540px;
+    left: 24%;
+    top:25%;
+    width: 52%;
+    height: 52%;
     transform: scale(1,1);
     background-color: #f2f9ff;
     border-radius: 20px;
@@ -30,32 +35,35 @@ body{
 
 .card-beside{
     position: absolute;
-    top: 275px;
+    top:24.5%;
+    width: 52%;
+    height: 52%;
     /* width: 900px;
     height: 486px; */
-    width: 1000px;
-    height: 540px;
+
     transform: scale(0.8,0.8);
     background-color: #f2f9ff;
     border-radius: 20px;
 }
 .card-beside-left{
-    left: -490px;
+    left: -26%;
 }
 .card-beside-right{
-    right: -490px;
+    left: 74%;
 }
 .card-beside-hidden{
-    right: -900px;
+    right: -52%;
 }
-
+/* .card-beside-hidden-left{
+    left: -52%;
+} */
 .box-arrow{
     position: absolute;
     border-radius: 50%;
     background-color: white;
     height: 80px;
     width: 80px;
-    box-shadow: 
+    /* box-shadow:0 0 4px;  */
 }
 
 .box-arrow img{
@@ -65,39 +73,30 @@ body{
 }
 
 .arrow-left{
-    left: 300px;
-    top: 500px;
+    left: 14%;
+    top: 46%;
 }
 
 .arrow-right{
-    right: 300px;
-    top: 500px;
+    right: 14%;
+    top: 46%;
 }
 
 .box-indicate-bar{
     position: absolute;
-    width: 1000px;
-    left: 460px;
-    top: 900px;
+    width: 50%;
+    left: 28%;
+    top: 85%;
 }
 .indicate-bar{
-    position: absolute;
+    float: left;
     height: 2px;
-    width: 160px;
+    width: 12%;
     background-color: white;
+    margin-left: 7%;
+    list-style: none;
 }
-.bar-1{
-    left: 150px;
-}
-.bar-4{
-    right: 150px;
-}
-.bar-2{
-    left: 330px;
-}
-.bar-3{
-    right: 330px;
-}
+
 .bar-active{
     background: orange;
 }

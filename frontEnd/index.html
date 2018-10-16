@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <title>创业盒子</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./static/styles/fonts.css">
@@ -29,37 +28,37 @@
                 <li id="nav-project" onclick="changePage(this)"><a href="#">项目展示</a></li>
                 <li id="nav-tools" onclick="changePage(this)"><a href="#">创业工具</a></li>
             </ul>
-            <div id="nav-dot"></div>
         </div>
 
         <div class="box-card">
             <div class="card card-center" id="card-info">
-                content
+                企业信息
             </div>
-            <div class="card card-beside card-beside-left" id="card-project">
-                left
+            <div class="card card-beside card-beside-left" id="card-news">
+                热点新闻
             </div>
             <div class="card card-beside card-beside-right" id="card-project">
-                right
+                项目展示
             </div>
-            <div class="card card-beside card-beside-hidden" id="card-project">
-                hidden
+            <div class="card card-beside card-beside-hidden" id="card-tools">
+                创业工具
             </div>
+            
         </div>
 
-        <div class="box-arrow arrow-left">
+        <div class="box-arrow arrow-left" >
             <img src="./static/image/arrow-left.png">
         </div>
         <div class="box-arrow arrow-right">
             <img src="./static/image/arrow-right.png">
         </div>
 
-        <div class="box-indicate-bar">
-            <div class="indicate-bar bar-1 bar-active"></div>
-            <div class="indicate-bar bar-2"></div>
-            <div class="indicate-bar bar-3"></div>
-            <div class="indicate-bar bar-4"></div>
-        </div>
+        <ul class="box-indicate-bar">
+            <li class="indicate-bar bar-active" id="bar-1"></li>
+            <li class="indicate-bar" id="bar-2"></li>
+            <li class="indicate-bar" id="bar-3"></li>
+            <li class="indicate-bar" id="bar-4"></li>
+        </ul>
     </div>
 </body>
 </html>
