@@ -17,11 +17,6 @@ body{
     background-color: rgba(0, 0, 0, 0.77)
 }
 
-.card{
-    transition: all;
-    transition-duration: 1s;
-}
-
 .card-center{
     position: absolute;
     left: 24%;
@@ -31,6 +26,7 @@ body{
     transform: scale(1,1);
     background-color: #f2f9ff;
     border-radius: 20px;
+    z-index: 999;
 }
 
 .card-beside{
@@ -51,19 +47,26 @@ body{
 .card-beside-right{
     left: 74%;
 }
-.card-beside-hidden{
-    right: -52%;
+
+.card-beside-hidden-right{
+    left: 100%;
 }
-/* .card-beside-hidden-left{
+.card-beside-hidden-left{
     left: -52%;
-} */
+}
 .box-arrow{
     position: absolute;
     border-radius: 50%;
     background-color: white;
     height: 80px;
     width: 80px;
-    /* box-shadow:0 0 4px;  */
+    z-index: 1000;
+    transition: background;
+    transition-duration: 0.5s;    /* box-shadow:0 0 4px;  */
+}
+
+.box-arrow:hover{
+    background: orange;
 }
 
 .box-arrow img{
@@ -99,4 +102,26 @@ body{
 
 .bar-active{
     background: orange;
+}
+
+.clr-transition{
+    transition: none;
+}
+
+#card-info{
+    background-color: orange;
+}
+#card-news{
+    background-color: red;
+}
+#card-project{
+    background-color: green;
+}
+#card-tools{
+    background-color: white;
+}
+
+.scroll-transition{
+    transition: transform left;
+    transition-duration: 1s;
 }

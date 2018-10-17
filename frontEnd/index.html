@@ -31,25 +31,25 @@
         </div>
 
         <div class="box-card">
-            <div class="card card-center" id="card-info">
+            <div class="card card-center scroll-transition" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
                 企业信息
             </div>
-            <div class="card card-beside card-beside-left" id="card-news">
+            <div class="card card-beside card-beside-left scroll-transition" id="card-news">
                 热点新闻
             </div>
-            <div class="card card-beside card-beside-right" id="card-project">
+            <div class="card card-beside card-beside-right scroll-transition" id="card-project">
                 项目展示
             </div>
-            <div class="card card-beside card-beside-hidden" id="card-tools">
+            <div class="card card-beside card-beside-hidden-right scroll-transition" id="card-tools">
                 创业工具
             </div>
             
         </div>
 
-        <div class="box-arrow arrow-left" >
+        <div class="box-arrow arrow-left" onclick="preCard()">
             <img src="./static/image/arrow-left.png">
         </div>
-        <div class="box-arrow arrow-right">
+        <div class="box-arrow arrow-right" onclick="nextCard()">
             <img src="./static/image/arrow-right.png">
         </div>
 
