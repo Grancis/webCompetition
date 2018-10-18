@@ -1,3 +1,8 @@
+/* @keyframes indicate-bar{
+    from{background-color: white}
+    to{background:linear-gradient(to left, #ef506d 0%, #f9ab4b 100%);}
+} */
+
 *{
     padding: 0;
     margin: 0;
@@ -15,6 +20,10 @@ body{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.77)
+}
+
+.card{
+    padding: 10px;
 }
 
 .card-center{
@@ -95,13 +104,13 @@ body{
     float: left;
     height: 2px;
     width: 12%;
-    background-color: white;
+    background: white;
     margin-left: 7%;
     list-style: none;
 }
 
 .bar-active{
-    background: orange;
+    background:linear-gradient(to left, #ef506d 0%, #f9ab4b 100%);
 }
 
 .clr-transition{
@@ -109,7 +118,7 @@ body{
 }
 
 #card-info{
-    background-color: orange;
+    background-color: #f2f9ff;
 }
 #card-news{
     background-color: red;
@@ -118,10 +127,61 @@ body{
     background-color: green;
 }
 #card-tools{
-    background-color: white;
+    background-color: orange;
 }
 
 .scroll-transition{
     transition: transform left;
     transition-duration: 1s;
+}
+
+.card-capital{
+    font-family: fzzdh;
+    font-size: 2vw;
+}
+
+#card-capital-info{
+    position: absolute;
+    top: 32%;
+    left: 36%;
+    background: linear-gradient(to left, #ef506d 0%, #f9ab4b 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+/* search-box */
+#box-search-info{
+    position: absolute;
+    top: 52%;
+    left: 20%;
+    /* border: 1px solid; */
+    box-shadow: 0 8px 20px 2px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    height: 36px;
+    background: white;
+    border-radius: 18px;
+}
+.search-input{
+    width: 80%;
+    height: 100%;
+    float: left;
+    border-radius: 18px;
+    outline: none;
+    padding-left: 1em;
+}
+.search-btn{
+    width:20%;
+    height: 100%;
+    background: linear-gradient(to left, #ef506d 0%, #f9ab4b 100%);
+    border-radius: 18px;
+    color: white;
+    float: left;
+    text-align: center;
+    font-size: 1.3vw;
+    padding-top: 0.18em;
+    cursor: pointer;
+}
+.search-btn:hover{
+    font-size: 1.4vw;
 }

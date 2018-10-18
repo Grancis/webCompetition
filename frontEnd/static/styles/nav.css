@@ -7,22 +7,25 @@
 
 
 .box-logo{
-    position: relative;
+    position: absolute;
     top:1%;
     left: 9%;
     width: 25%;
 }
 
 #logo{
-    width: auto;
+    /* width: auto;
     height: auto;
     max-width:30%;
-    max-height:30%;
+    max-height:30%; */
+    position: absolute;
+    top: 1vh;
+    width: 8vw;
 }
 
 .title-logo{
     position: absolute;
-    top:50px;
+    top:5vh;
     left:35%;
     color: white;
 
@@ -34,14 +37,14 @@
 
 #title-logo-one{
     font-family: fzzdh;
-    font-size: 3em;
+    font-size: 2.5vw;
 }
 
 #title-logo-two{
     font-family: pf_light;
     font-size: 1vw;
     letter-spacing: 0.5vw;
-    margin-top: 10px;
+    margin-top: 2vh;
 }
 
 .box-nav{
@@ -65,7 +68,7 @@ float: left;
     text-decoration: none;
     font-family: pf_regular;
     color: white;
-    font-size: 1em;
+    font-size: 1.1vw;
 }
 
 #nav-tools{
