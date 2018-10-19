@@ -38,8 +38,8 @@ function cardScroll(){
     c_beside_hidden_left=$(".card-beside-hidden-left")[0];
 
     $(c_center).removeClass("card-center");
-    // $(c_center).removeAttr("onmouseover");
-    // $(c_center).removeAttr("onmouseout");
+    $(c_center).removeAttr("onmouseover");
+    $(c_center).removeAttr("onmouseout");
     $(c_center).addClass("card-beside card-beside-right");
 
     $(c_beside_right).removeClass("card-beside-right");
@@ -47,8 +47,8 @@ function cardScroll(){
     
     $(c_beside_left).removeClass("card-beside card-beside-left");
     $(c_beside_left).addClass("card-center");
-    // $(c_beside_left).attr("onmouseover","stopScroll()");
-    // $(c_beside_left).attr("onmouseout","startScroll()");
+    $(c_beside_left).attr("onmouseover","stopScroll()");
+    $(c_beside_left).attr("onmouseout","startScroll()");
 
     $(c_beside_hidden_left).addClass("card-beside-left");
     $(c_beside_hidden_left).removeClass("card-beside-hidden-left");
@@ -58,7 +58,7 @@ function cardScroll(){
     if (_card_cnt>4){
         _card_cnt=1;
     }
-    // if (cnt_pre==0){cnt_pre=4}
+    
     $("#bar-"+cnt_pre).removeClass("bar-active");
     $("#bar-"+_card_cnt).addClass("bar-active");
 
@@ -76,8 +76,8 @@ function cardScrollReverse(){
     c_beside_hidden_right=$(".card-beside-hidden-right")[0];
 
     $(c_center).removeClass("card-center");
-    // $(c_center).removeAttr("onmouseover");
-    // $(c_center).removeAttr("onmouseout");
+    $(c_center).removeAttr("onmouseover");
+    $(c_center).removeAttr("onmouseout");
     $(c_center).addClass("card-beside card-beside-left");
 
     $(c_beside_left).removeClass("card-beside-left");
@@ -85,8 +85,8 @@ function cardScrollReverse(){
     
     $(c_beside_right).removeClass("card-beside card-beside-right");
     $(c_beside_right).addClass("card-center");
-    // $(c_beside_right).attr("onmouseover","stopScroll()");
-    // $(c_beside_right).attr("onmouseout","startScroll()");
+    $(c_beside_right).attr("onmouseover","stopScroll()");
+    $(c_beside_right).attr("onmouseout","startScroll()");
 
     $(c_beside_hidden_right).addClass("card-beside-right");
     $(c_beside_hidden_right).removeClass("card-beside-hidden-right");
@@ -96,7 +96,6 @@ function cardScrollReverse(){
     if (_card_cnt<1){
         _card_cnt=4;
     }
-    // if (cnt_pre==0){cnt_pre=4}
     $("#bar-"+cnt_pre).removeClass("bar-active");
     $("#bar-"+_card_cnt).addClass("bar-active");
 }
@@ -105,7 +104,7 @@ var scroll_timer=null;
 
 $(document).ready(function () {
     
-    // scroll_timer=setInterval("scroller_wrapper()",3000);
+    scroll_timer=setInterval("scroller_wrapper()",3000);
 });
 
 function scroller_wrapper(){

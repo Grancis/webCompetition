@@ -33,9 +33,10 @@
         </div>
 
         <div class="box-card">
-            <div class="card card-center scroll-transition" id="card-info" >
+
+            <div class="card card-center scroll-transition" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
                     <!-- onmouseover="stopScroll()" onmouseout="startScroll()" -->
-                <span class="card-capital" id="card-capital-info">
+                <span class="card-caption" id="card-caption-info">
                     企业信息查询
                 </span>
                 <div class="card-content" id="box-search-info">
@@ -46,14 +47,160 @@
                     </div>
                 </div>
             </div>
+
             <div class="card card-beside card-beside-left scroll-transition" id="card-news">
                 热点新闻
             </div>
+
             <div class="card card-beside card-beside-right scroll-transition" id="card-project">
-                项目展示
+
+                <span class="card-caption" id="card-caption-project">
+                    项目展示
+                </span>
+
+                <div class="box-project-contents">
+                    <div class="card-content card-content-project">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-1.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">Doctor Can 肿瘤治库</p>
+                            <p class="card-inside-descibe-resume">基于世界级认知的计算和超级算力的医疗软件</p>
+                        </div>
+                    </div>
+
+                    <div class="card-content card-content-project">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-2.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">可视化脊柱微创手术导航</p>
+                            <p class="card-inside-descibe-resume">脊柱微创领域一体化生态链</p>
+                        </div>
+                    </div>
+
+                    <div class="card-content card-content-project">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-3.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">薪公益</p>
+                            <p class="card-inside-descibe-resume">“科技+产品+金融+公益”薪公益平台</p>
+                        </div>
+                    </div>
+
+                    <div class="card-content card-content-project">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-4.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">飞行医院</p>
+                            <p class="card-inside-descibe-resume">全天候、多功能、强适应性的救治能力</p>
+                        </div>
+                    </div>
+
+                    <div class="card-content card-content-project">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-5.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">WOWGO</p>
+                            <p class="card-inside-descibe-resume">国内唯一的规范化路线体系</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+
             <div class="card card-beside card-beside-hidden-right scroll-transition" id="card-tools">
-                创业工具
+
+                <div class="card-content card-content-tools" id="card-caption-tools">
+                    <div class="card-inside card-inside-tools" >
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            创业工具
+                        </span>
+                        <p class="card-inside-content">
+                            &nbsp;
+                        </p>
+                        <label class="card-inside-footer">
+                            &nbsp;
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="card-content card-content-tools">
+                    <div class="card-inside card-inside-tools">
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            工商注册
+                        </span>
+                        <p class="card-inside-content">
+                            有限责任公司是指《中华人民共和国登记管理条例》规定登记注册，由五十个一下的股东出资设立，公司以全部资产对其债务承担责任的经济组织。
+                        </p>
+                        <label class="card-inside-footer">
+                            <a href="#">了解更多></a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card-content card-content-tools">
+                    <div class="card-inside card-inside-tools">
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            知识产权
+                        </span>
+                        <p class="card-inside-content">
+                            知识产权是指人们就起智力劳动结果所依法享有的专有权利，通常是国家古语创造者对其智力成果在一定时期内享有的专有权或独占权。
+                        </p>
+                        <label class="card-inside-footer">
+                            <a href="#">了解更多></a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card-content card-content-tools">
+                    <div class="card-inside card-inside-tools">
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            经营许可
+                        </span>
+                        <p class="card-inside-content">
+                                公司经营增值电信服务时（如：游戏会员、网站广告、付费新闻等虚拟的有偿信息服务）需要办理ICP经营许可证，才能合法的开展相应的业务。
+                        </p>
+                        <label class="card-inside-footer">
+                            <a href="#">了解更多></a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card-content card-content-tools">
+                    <div class="card-inside card-inside-tools">
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            人事管理
+                        </span>
+                        <p class="card-inside-content">
+                                人事管理旨在通过科学的方法，正确的用人原则及合理的管理制度，调整人与人、人与事、人与组织的关系，以充分利用人力资源。
+                        </p>
+                        <label class="card-inside-footer">
+                            <a href="#">了解更多></a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card-content card-content-tools">
+                    <div class="card-inside card-inside-tools">
+                        <span class="card-caption card-caption-inside card-caption-inside-tools">
+                            投资融资
+                        </span>
+                        <p class="card-inside-content">
+                            投融资管理是指政府为实现一定的产业政策和财政政策目标，通过国家信用方式把各种闲散资金，特别是民间的闲散资金集中起来，统一由财政部门掌握统一。
+                        </p>
+                        <label class="card-inside-footer">
+                                <a href="#">了解更多></a>
+                        </label>
+                    </div>
+                </div>
+
+
             </div>
             
         </div>

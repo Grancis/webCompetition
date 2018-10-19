@@ -124,10 +124,10 @@ body{
     background-color: red;
 }
 #card-project{
-    background-color: green;
+    background-color: #f2f9ff;
 }
 #card-tools{
-    background-color: orange;
+    background-color: #f2f9ff;
 }
 
 .scroll-transition{
@@ -135,12 +135,13 @@ body{
     transition-duration: 1s;
 }
 
-.card-capital{
+.card-caption{
     font-family: fzzdh;
     font-size: 2vw;
 }
 
-#card-capital-info{
+/* card-info */
+#card-caption-info{
     position: absolute;
     top: 32%;
     left: 36%;
@@ -184,4 +185,127 @@ body{
 }
 .search-btn:hover{
     font-size: 1.4vw;
+}
+
+/*card-tools*/
+.card-caption-inside{
+    height: 10%;
+    font-size: 1.2vw;
+    font-weight: lighter;
+    background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card-content-tools{
+    font-family: pf_medium;
+    display: inline-block;
+    width: 28%;
+    margin-left: 4%;
+    height: 40%;;
+    margin-top: 20px;
+    padding: 1em;
+    box-shadow: 0 8px 30px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: white;
+    position: relative;
+    transition: box-shadow 0.5s;
+    cursor: pointer;
+}
+
+.card-content-tools:hover{
+    box-shadow: 0 8px 20px 4px #f5576c2d;
+}
+
+#card-caption-tools{
+    box-shadow: none;
+    background: inherit;
+}
+
+#card-caption-tools span{
+    font-size: 2vw;
+    font-weight: normal;
+    background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#card-caption-tools .card-inside-content{
+    height: 60%;
+}
+
+.card-inside-content{
+    display: block;
+    min-height: 60%;
+    max-height: 60%;
+    overflow: hidden;
+}
+.card-inside-footer{
+    position: absolute;
+    display: inline-block;
+    right: 2em;
+}
+
+/* card-project */
+
+#card-caption-project{
+    
+    position: absolute;
+    display: block;
+    top: 6%;
+    left: 42%;
+    background: linear-gradient(to left, #b721ff 0%, #21d4fd 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card-content-project{
+    font-family: pf_medium;
+    display: inline-block;
+    width: 33%;
+    /* margin-left: 0% */
+}
+.box-project-contents{
+    position: absolute;
+    top: 20%;
+}
+.card-inside-image{
+    display: block;
+    background-color: white;
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow, transform;
+    transition-duration: 0.5s;
+}
+
+.card-inside-image:hover{
+    box-shadow: 0 10px 30px 1px #21d5fd54;
+    transform: translateY(-4px);
+}
+.card-inside-image img{
+    margin: 0 auto;
+    width: 95px;
+    margin-top: 2px;
+}
+.card-inside-describe{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+}
+.card-inside-descibe-caption{
+    background: linear-gradient(to left, #b721ff 0%, #21d4fd 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family:fzzdh;
+    font-size: 0.5vw;
+}
+.card-inside-descibe-resume{
+    min-height: 1em;
 }
