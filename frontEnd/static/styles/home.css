@@ -13,17 +13,26 @@ body{
     background: url(../image/background.png) no-repeat;
     background-size: 100%,100%;
     overflow: hidden;
+    overflow-x: hidden;
 }
 
 .box-body{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.77)
+    position: absolute;
+    background: rgba(0,0,0,0.77);
+    background-image: linear-gradient(156deg, #ef506d 0%, #f9ab4b 100%);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment:fixed;
+    background-size:0% 0%;
+    transition: background-size;
+    transition-duration: 0.5s;
+    overflow: hidden;
 }
+
 
 .card{
     padding: 10px;
+    background-color: #f2f9ff;
 }
 
 .card-center{
@@ -117,7 +126,7 @@ body{
     transition: none;
 }
 
-#card-info{
+/* #card-info{
     background-color: #f2f9ff;
 }
 #card-news{
@@ -128,10 +137,10 @@ body{
 }
 #card-tools{
     background-color: #f2f9ff;
-}
+} */
 
 .scroll-transition{
-    transition: transform left;
+    transition: all;
     transition-duration: 1s;
 }
 
@@ -152,7 +161,7 @@ body{
 
 
 /* search-box */
-#box-search-info{
+.box-search-info{
     position: absolute;
     top: 52%;
     left: 20%;
@@ -162,6 +171,9 @@ body{
     height: 36px;
     background: white;
     border-radius: 18px;
+    transition: all;
+    transition-duration: 1s;
+    
 }
 .search-input{
     width: 80%;
@@ -199,10 +211,11 @@ body{
 
 .card-content-tools{
     font-family: pf_medium;
-    display: inline-block;
+    /* display: inline-block; */
+    float: left;
     width: 28%;
     margin-left: 4%;
-    height: 40%;;
+    height: 42%;;
     margin-top: 20px;
     padding: 1em;
     box-shadow: 0 8px 30px 1px rgba(0, 0, 0, 0.2);
@@ -235,15 +248,16 @@ body{
 }
 
 .card-inside-content{
+    font-size: 0.8vw;
     display: block;
-    min-height: 60%;
-    max-height: 60%;
     overflow: hidden;
 }
 .card-inside-footer{
+    font-size: 0.5vw;
     position: absolute;
     display: inline-block;
     right: 2em;
+    bottom: 1em;
 }
 
 /* card-project */
@@ -261,19 +275,20 @@ body{
 
 .card-content-project{
     font-family: pf_medium;
-    display: inline-block;
-    width: 33%;
-    /* margin-left: 0% */
+    /* display: inline-block; */
+    float: left;
+    width: 30%;
+    margin-left: 2%;
 }
 .box-project-contents{
     position: absolute;
-    top: 20%;
+    top: 18%;
 }
 .card-inside-image{
     display: block;
     background-color: white;
-    width: 100px;
-    height:100px;
+    width:5vw;
+    height:5vw;
     border-radius: 50%;
     text-align: center;
     overflow: hidden;
@@ -290,8 +305,8 @@ body{
 }
 .card-inside-image img{
     margin: 0 auto;
-    width: 95px;
-    margin-top: 2px;
+    width: 4.9vw;
+    margin-top: 0.05vw;
 }
 .card-inside-describe{
     display: block;
@@ -305,7 +320,4 @@ body{
     color: transparent;
     font-family:fzzdh;
     font-size: 0.5vw;
-}
-.card-inside-descibe-resume{
-    min-height: 1em;
 }

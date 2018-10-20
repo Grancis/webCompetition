@@ -1,20 +1,22 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <title>创业盒子</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/styles/fonts.css">
     <link rel="stylesheet" type="text/css" href="./static/styles/nav.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/home.css" />
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/info_search.css" />
     <script src="./static/jslib/nav.js"></script>
     <script src="./static/jslib/home.js"></script>
+    <script src="./static/jslib/info_search.js"></script>
 </head>
 <body>
-    <div class="box-body">
-        <div class="box-logo">
+    <div class="box-logo">
             <img class="img-responsive" id="logo" src="./static/image/LOGO.png">
             <div class="title-logo">
                 <label id="title-logo-one">创业盒子</label>
@@ -31,18 +33,20 @@
                 <li id="nav-tools" onclick="changePage(this)"><a href="#">创业工具</a></li>
             </ul>
         </div>
+    <div class="box-body">
+        
 
         <div class="box-card">
 
-            <div class="card card-center scroll-transition" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
+            <div class="card card-center scroll-transition card-info" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
                     <!-- onmouseover="stopScroll()" onmouseout="startScroll()" -->
                 <span class="card-caption" id="card-caption-info">
                     企业信息查询
                 </span>
-                <div class="card-content" id="box-search-info">
+                <div class="card-content box-search-info" id="box-search-info">
                     <input class="search-input" id="search-input-info">
                     
-                    <div class="search-btn" id="search-btn-info">
+                    <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
                             <span class="glyphicon glyphicon-search"></span>
                     </div>
                 </div>
@@ -218,6 +222,26 @@
             <li class="indicate-bar" id="bar-3"></li>
             <li class="indicate-bar" id="bar-4"></li>
         </ul>
+    </div>
+
+    <div class="box-content">
+            <!-- <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+    
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p>
+            <p>daahgkdaghadglkdakjglajdlgj</p> -->
     </div>
 </body>
 </html>

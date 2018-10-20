@@ -1,4 +1,7 @@
 _card_cnt=1;
+var _scroll_timer=null;
+var _width=null;
+var _height=null;
 
 function sleep(n) { 
     var start = new Date().getTime();
@@ -100,12 +103,7 @@ function cardScrollReverse(){
     $("#bar-"+_card_cnt).addClass("bar-active");
 }
 
-var scroll_timer=null;
 
-$(document).ready(function () {
-    
-    scroll_timer=setInterval("scroller_wrapper()",3000);
-});
 
 function scroller_wrapper(){
     initScroll();
@@ -118,20 +116,41 @@ function scroller_wrapper_reverse(){
 }
 
 function nextCard(){
-    clearInterval(scroll_timer);
+    clearInterval(_scroll_timer);
     scroller_wrapper();
-    scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",3000);
 }
 
 function preCard(){
-    clearInterval(scroll_timer);
+    clearInterval(_scroll_timer);
     scroller_wrapper_reverse();
-    scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",3000);
 }
 
 function stopScroll(){
-    clearInterval(scroll_timer);
+    clearInterval(_scroll_timer);
 }
 function startScroll(){
-    scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",3000);
+}
+
+
+
+$(window).resize(function(){
+    resizeBox();
+})
+
+$(document).ready(function () {
+    resizeBox();
+    _scroll_timer=setInterval("scroller_wrapper()",3000);
+});
+
+function resizeBox(){
+    _width=$(window).width();
+    _height=$(window).height();
+    box_body=$(".box-body")[0]
+    $(box_body).css({
+        "width":_width,
+        "height":_height
+    });
 }
