@@ -4,10 +4,10 @@
     background-position: 45% 35vh;
     background-attachment: fixed;
     background-size: 0% auto;
-    transition: background-size 1.2s;
-    /* transition: background-color 0.8s; */
-
-    /* transition: background-size 0.8s; */
+    /* transition: left 1s;
+    transition: transform 1s;
+    transition: background-size 1.2s; */
+    transition: all 1s;
 }
 .box-body-info{
     position: fixed;

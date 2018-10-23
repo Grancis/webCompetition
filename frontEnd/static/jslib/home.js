@@ -107,31 +107,31 @@ function cardScrollReverse(){
 
 function scroller_wrapper(){
     initScroll();
-    setTimeout("cardScroll()",1);
+    setTimeout("cardScroll()",100);
 }
 
 function scroller_wrapper_reverse(){
     initScrollReverse();
-    setTimeout("cardScrollReverse()",1);
+    setTimeout("cardScrollReverse()",100);
 }
 
 function nextCard(){
     clearInterval(_scroll_timer);
     scroller_wrapper();
-    _scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",2900);
 }
 
 function preCard(){
     clearInterval(_scroll_timer);
     scroller_wrapper_reverse();
-    _scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",2900);
 }
 
 function stopScroll(){
     clearInterval(_scroll_timer);
 }
 function startScroll(){
-    _scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",2900);
 }
 
 
@@ -142,7 +142,7 @@ $(window).resize(function(){
 
 $(document).ready(function () {
     resizeBox();
-    _scroll_timer=setInterval("scroller_wrapper()",3000);
+    _scroll_timer=setInterval("scroller_wrapper()",2900);
 });
 
 function resizeBox(){

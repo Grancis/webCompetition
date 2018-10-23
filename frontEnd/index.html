@@ -26,7 +26,7 @@
 
         <div class="box-nav" role="navigation">
             <ul>
-                <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="#">首页</a></li>
+                <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="index.html">首页</a></li>
                 <li id="nav-info" onclick="changePage(this)"><a href="#">企业信息</a></li>
                 <li id="nav-news" onclick="changePage(this)"><a href="#">热点新闻</a></li>
                 <li id="nav-project" onclick="changePage(this)"><a href="#">项目展示</a></li>
@@ -53,7 +53,39 @@
             </div>
 
             <div class="card card-beside card-beside-left scroll-transition" id="card-news">
-                热点新闻
+                <span class="card-caption" id="card-caption-project">
+                    商业新闻
+                </span>
+
+                <div class="box-news-content">
+                    <div class="card-content card-content-news">
+                        <h3 class="card-inside-news-caption">快讯|坚果投影完成6亿元D轮融资，阿里巴巴领投</h3>
+                        <div class="card-inside-news-resume">
+                            
+                        </div>
+                        <img class="card-inside-news">
+                    </div>
+                    <div class="card-content card-content-news">
+                        <h3 class="card-inside-news-caption"></h3>
+                        <p class="card-inside-news-resume"></p>
+                        <img class="card-inside-news">
+                    </div>
+                    <div class="card-content card-content-news">
+                        <h3 class="card-inside-news-caption"></h3>
+                        <p class="card-inside-news-resume"></p>
+                        <img class="card-inside-news">
+                    </div>
+                </div>
+
+                <div class="card-news-switch">
+                    <ul class="bars">
+                        <li class="bar-news bar-news-active"></li>
+                        <li class="bar-news bar-news-active"></li>
+                    </ul>
+                    <span class="switch-left">&lt;</span>
+                    <span class="switch-mid">|</span>
+                    <span class="switch-right">&gt;</span>
+                </div>
             </div>
 
             <div class="card card-beside card-beside-right scroll-transition" id="card-project">
