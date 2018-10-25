@@ -19,7 +19,7 @@ body{
 .box-body{
     position: absolute;
     background: rgba(0,0,0,0.77);
-    background-image: linear-gradient(156deg, #ef506d 0%, #f9ab4b 100%);
+    
     background-repeat: no-repeat;
     background-position:center;
     background-attachment:fixed;
@@ -33,6 +33,7 @@ body{
 .card{
     padding: 10px;
     background-color: #f2f9ff;
+    overflow: hidden;
 }
 
 .card-center{
@@ -126,18 +127,22 @@ body{
     transition: none;
 }
 
-/* #card-info{
-    background-color: #f2f9ff;
+.card-info{
+    background-image: url(../image/background-info.png);
+    background-repeat: no-repeat;
+    background-position: 45% 35vh;
+    background-attachment: fixed;
+    background-size: 0% auto;
 }
-#card-news{
-    background-color: red;
+
+.card-news{
+    background-image: url(../image/background-news.png);
+    background-repeat: no-repeat;
+    background-position: 45% 35vh;
+    background-attachment: fixed;
+    background-size: 0% auto;
 }
-#card-project{
-    background-color: #f2f9ff;
-}
-#card-tools{
-    background-color: #f2f9ff;
-} */
+
 
 .scroll-transition{
     transition: all;
@@ -161,16 +166,19 @@ body{
 
 
 /* search-box */
-.box-search-info{
+.box-search{
     position: absolute;
-    top: 52%;
-    left: 20%;
     /* border: 1px solid; */
     box-shadow: 0 8px 20px 2px rgba(0, 0, 0, 0.2);
     width: 60%;
     height: 36px;
     background: white;
     border-radius: 18px;
+}
+.box-search-info{
+    top: 52%;
+    left: 20%;
+    /* border: 1px solid; */
     transition: all;
     transition-duration: 1s;
     
@@ -224,6 +232,7 @@ body{
     position: relative;
     transition: box-shadow 0.5s;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .card-content-tools:hover{
@@ -256,8 +265,8 @@ body{
     font-size: 0.5vw;
     position: absolute;
     display: inline-block;
-    right: 2em;
-    bottom: 1em;
+    right: 1vw;
+    bottom: 1.5vh;
 }
 
 /* card-project */
@@ -320,4 +329,127 @@ body{
     color: transparent;
     font-family:fzzdh;
     font-size: 0.5vw;
+}
+
+/* card-news */
+#card-caption-news{
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    background: linear-gradient(to left, #00bcff 0%, #2fc87b 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    
+}
+
+.box-news-content{
+    position: absolute;
+    height: 64%;
+    top: 18%;
+    left: 7%;
+    transition: transform 0.5s;
+    /* background:black; */
+}
+
+
+.card-content-news{
+    float: left;
+    width: 28%;
+    height: 100%;
+    margin-left: 2vw;
+    background: white;
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 0 10px 42px 0.5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 1s;
+}
+.card-content-news:hover{
+    box-shadow: 0 10px 42px 0.5px #00bbff54;
+}
+/* .card-content-news:first-child{
+    margin-left: 0px;
+} */
+.clear-margin-left{
+    margin-left: 0px;
+}
+.card-inside-news-caption{
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.card-inside-news-resume{
+    height: 30%;
+    overflow: hidden;
+}
+.card-inside-news-img{
+    margin: 0 auto;
+    width: 90%;
+    max-height: 35%;
+    border-radius: 0.8em;
+}
+.card-news-switch{
+    position: absolute;
+    bottom: 3.5vh;
+    width: 16vw;
+    left: 7%;
+}
+.bars-switch{
+    position: absolute;
+    width: 70%;
+}
+.bar-news{
+    float: left;
+    height: 2px;
+    width: 36%;
+    margin-left: 2px;
+    background: gray;
+    list-style: none;
+}
+
+.bar-news-active{
+    background: linear-gradient(to left, #00bcff 0%, #2fc87b 100%);
+}
+.box-switch-btn{
+    position: absolute;
+    /* width: 20%; */
+    left: 60%;
+    list-style: none;
+    top:-0.9em;
+}
+
+.switch-left,
+.switch-mid,
+.switch-right{
+    float: left;
+    margin-right: 1vw;
+    font-size: 1.2vw;
+}
+.box-switch-btn a{
+    text-decoration: none;
+}
+
+.box-news-content-1{
+    transform: translateX(0);
+}
+.box-news-content-2{
+    transform: translateX(0);
+}
+.box-news-content-2-hidden{
+    transform: translateX(-100%);
+}
+.box-news-content-1-hidden{
+    transform: translateX(100%);
+}
+
+
+/* after clearing*/
+.box-content{
+    z-index: 2000;
+    position: absolute;
+    top: 25vh;
+    width: 60%;
+    left: 20%;
+    text-align: center;
 }

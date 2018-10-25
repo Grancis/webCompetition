@@ -1,0 +1,36 @@
+@keyframes news_block{
+    from{transform: scale(0,0)}
+    to{transform: scale(1,1)}
+}
+
+.box-body-news{
+    background-image: linear-gradient(156deg, #00bcff 0%, #2fc87b 100%);
+    position: fixed;
+    background-size:100% 100%;
+}
+
+.card-news-full{
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 26% auto;
+    width: 100%;
+    height: 100%;
+    top:2vh;
+    left: 0;
+}
+
+.box-search-news{
+    position: fixed;
+    left: 32%;
+    top:22%;
+    width: 34%;
+    z-index: 3000000;
+}
+
+.news-block{
+    height: 360px;
+    margin-top: 40px;
+    margin-bottom: -20px;
+    margin-left: 2vw;
+    max-width: 300px;
+    animation: news_block 0.5s;
+}

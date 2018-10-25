@@ -17,6 +17,7 @@ function infoSearchClick(){
     clearEle(caption);
     $(card_center).removeAttr("onmouseover");
     $(card_center).removeAttr("onmouseout");
+    // $(card_center).addClass("card-info-transition");
 
     /* rebuild page for info */
     $("body").css("overflow-y","scroll");   
@@ -28,13 +29,7 @@ function infoSearchClick(){
     $(nav_dot).click();
 }
 
-function clearEle(objs){
-    $.each(objs, function (index, item) { 
-        //  $(item).css("left","0px");
-         $(item).fadeOut();
-         $(item).remove();
-    });
-}
+
 
 function infoSearchClickFull(){
     ;

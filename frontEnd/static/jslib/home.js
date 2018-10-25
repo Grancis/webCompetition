@@ -143,6 +143,7 @@ $(window).resize(function(){
 $(document).ready(function () {
     resizeBox();
     _scroll_timer=setInterval("scroller_wrapper()",2900);
+    doNewsAjax();
 });
 
 function resizeBox(){
@@ -152,5 +153,98 @@ function resizeBox(){
     $(box_body).css({
         "width":_width,
         "height":_height
+    });
+}
+
+function createNewsBlock(id,img_loc,caption,time,resume,img){
+    card_content=$('<div class="card-content card-content-news" onclick="newsBlockClick(this)" id="'+id+'">'+'</div>');
+    box_caption=$('<h3 class="card-inside-news-caption">'+caption+'</h2>');
+    box_time=$('<span class="card-inside-news-time">'+time+'</span>');
+    box_resume=$('<div class="card-inside-news-resume">'+resume+'</div>');
+    box_img=$('<img class="card-inside-news-img img-responsive" src="'+img+'"'+'>');
+
+    if(img_loc==1){
+        $(card_content).append(box_img);
+        $(card_content).append(box_caption);
+        $(card_content).append(box_time);
+        $(card_content).append(box_resume);
+
+    }
+    else if(img_loc==2){
+        $(card_content).append(box_caption);
+        $(card_content).append(box_time);
+        $(card_content).append(box_img);
+        $(card_content).append(box_resume);
+    }
+    else if(img_loc==3){
+        $(card_content).append(box_caption);
+        $(card_content).append(box_time);
+        $(card_content).append(box_resume);
+        $(card_content).append(box_img);
+    }
+
+    return card_content;
+}
+
+function doNewsAjax(){
+    $.ajax({
+        type:"get",
+        url: "http://118.24.43.47:8089/news_preview?N=6",
+        dataType: "json",
+        success: function(data){
+            cnt=0;
+            box_1=$(".box-news-content-1")[0];
+            box_2=$(".box-news-content-2")[0];
+            $(box_2).children().remove();
+            $(box_1).children().remove();
+            $.each(data, function (index, item) { 
+                 cnt+=1;
+                 img_loc=cnt;
+                 while(img_loc>3){
+                    img_loc=img_loc-3;
+                }
+                 time=new Date(item.time).toLocaleDateString()
+                 news_block=createNewsBlock(item.id,img_loc,item.title,time,item.previewContent,item.previewImage);
+                 if(cnt>3){
+                    if(cnt==4){
+                        $(news_block).addClass("clear-margin-left");
+                    }
+                     $(box_2).append(news_block);
+                 }
+                 else{
+                     if(cnt==1){
+                         $(news_block).addClass("clear-margin-left");
+                     }
+                     $(box_1).append(news_block);
+                 }
+            });
+        }
+    })
+
+}
+
+function changeNewsPage(dic){
+    box_1=$(".box-news-content")[0];
+    box_2=$(".box-news-content")[1];
+    bar_active=$(".bar-news-active")[0];
+    bar=$(".bar-news:not(.bar-news-active)");
+    if(dic=="right"){
+        $(box_1).addClass("box-news-content-1-hidden");
+        $(box_2).removeClass("box-news-content-2-hidden");
+    }
+    else{
+        $(box_2).addClass("box-news-content-2-hidden");
+        $(box_1).removeClass("box-news-content-1-hidden");
+    }
+    $(bar_active).removeClass("bar-news-active");
+    $(bar).addClass("bar-news-active");
+}
+
+
+function clearEle(objs){
+    $.each(objs, function (index, item) { 
+        //  $(item).css("left","0px");
+         $(item).fadeOut();
+         $(item).remove();
     });
 }

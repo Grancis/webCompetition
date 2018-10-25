@@ -11,9 +11,11 @@
     <link rel="stylesheet" type="text/css" href="./static/styles/nav.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/home.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/info_search.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_news.css" />
     <script src="./static/jslib/nav.js"></script>
     <script src="./static/jslib/home.js"></script>
     <script src="./static/jslib/info_search.js"></script>
+    <script src="./static/jslib/to_news.js"></script>
 </head>
 <body>
     <div class="box-logo">
@@ -43,7 +45,7 @@
                 <span class="card-caption" id="card-caption-info">
                     企业信息查询
                 </span>
-                <div class="card-content box-search-info" id="box-search-info">
+                <div class="card-content box-search box-search-info" id="box-search-info">
                     <input class="search-input" id="search-input-info">
                     
                     <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
@@ -52,39 +54,37 @@
                 </div>
             </div>
 
-            <div class="card card-beside card-beside-left scroll-transition" id="card-news">
-                <span class="card-caption" id="card-caption-project">
+            <div class="card card-beside card-beside-left scroll-transition card-news" id="card-news">
+                <span class="card-caption" id="card-caption-news">
                     商业新闻
                 </span>
 
-                <div class="box-news-content">
+                <div class="box-news-content box-news-content-1">
                     <div class="card-content card-content-news">
                         <h3 class="card-inside-news-caption">快讯|坚果投影完成6亿元D轮融资，阿里巴巴领投</h3>
+                        <span class="card-inside-news-time">2018/10/24 上午9:07:00</span>
                         <div class="card-inside-news-resume">
-                            
+                            投资界（ID：pedaily2012）10月23日消息，Fastwork是一家在泰国和印尼开展业务的在线自由职业雇佣平台，它于近日宣布已获得跨境风险投资公司戈壁创投领投的A轮480万美元投...
                         </div>
-                        <img class="card-inside-news">
+                        <img class="card-inside-news-img img-responsive" src="./static/image/background.png">
                     </div>
-                    <div class="card-content card-content-news">
-                        <h3 class="card-inside-news-caption"></h3>
-                        <p class="card-inside-news-resume"></p>
-                        <img class="card-inside-news">
-                    </div>
-                    <div class="card-content card-content-news">
-                        <h3 class="card-inside-news-caption"></h3>
-                        <p class="card-inside-news-resume"></p>
-                        <img class="card-inside-news">
-                    </div>
+                    
+                </div>
+
+                <div class="box-news-content box-news-content-2 box-news-content-2-hidden">
+                    
                 </div>
 
                 <div class="card-news-switch">
-                    <ul class="bars">
+                    <ul class="bars-switch">
                         <li class="bar-news bar-news-active"></li>
-                        <li class="bar-news bar-news-active"></li>
+                        <li class="bar-news"></li>
                     </ul>
-                    <span class="switch-left">&lt;</span>
-                    <span class="switch-mid">|</span>
-                    <span class="switch-right">&gt;</span>
+                    <ul class="box-switch-btn">
+                        <li class="switch-left"><a href="javascript:changeNewsPage('left')" id="news-switch-left">&lt;</a></li>
+                        <li class="switch-mid">|</li>
+                        <li class="switch-right"><a href="javascript:changeNewsPage('right')" id="news-switch-right">&gt;</a></li>
+                    </ul>
                 </div>
             </div>
 
