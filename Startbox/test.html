@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>导航栏</title>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript">
+	
+		(function ($) {
+			$(function () {
+				nav();
+			});
+			
+			function nav() {
+				var $liCur = $(".nav-box ul li.cur"),
+				curP = $liCur.position().left,
+				curW = $liCur.outerWidth(true),
+				$slider = $(".nav-line"),
+				$targetEle = $(".nav-box ul li a"),
+				$navBox = $(".nav-box");
+				$slider.stop(true, true).animate({
+					"left":curP,
+					"width":curW
+				});
+				$targetEle.mouseenter(function () {
+					var $_parent = $(this).parent(),
+					_width = $_parent.outerWidth(true),
+					posL = $_parent.position().left;
+					$slider.stop(true, true).animate({
+						"left":posL,
+						"width":_width
+					}, "fast");
+				});
+				$navBox.mouseleave(function (cur, wid) {
+					cur = curP;
+					wid = curW;
+					$slider.stop(true, true).animate({
+						"left":cur,
+						"width":wid
+					}, "fast");
+				});
+			};
+		
+		})(jQuery);
+ 
+		</script>
+		<style type="text/css">
+			body{margin: 0; }
+			ul, li{margin: 0; padding: 0;}
+			a{text-decoration: none;}
+	
+			.banner{
+				width: 100%;
+				height: 70px;
+				
+				/*background-color: yellow;*/
+				}
+			.nav-box{
+				width: 50%;
+				float: right;
+				position: relative;
+				top: 35px;
+			/*	background-color: darkgray;*/
+			}
+			.nav-box ul{
+				list-style: none;
+						
+			}
+			.nav-box ul li{
+				float: left;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				
+				height: 30px;
+				line-height: 30px;
+				padding: 0 12px;
+			/*	background-color: #F5F5F5;*/
+			}
+			.nav-box .nav-line {
+			    background: none repeat scroll 0 0 #35C4FD;
+			    bottom: 0;
+			    font-size: 0;
+			    height: 25px;
+			    left: 0;
+			    line-height: 2px;
+			    position: absolute;
+			    width: 52px;
+			}	
+			
+		</style>
+	</head>
+	<body>
+		<div class="banner" >
+			<div class="nav-box">
+				<ul>
+					<li class="cur"><a href="#">首页</a></li>
+					<li><a href="#">论坛</a></li>
+					<li><a href="#">商务合作</a></li>
+					<li><a href="#">下载专区</a></li>
+					<li><a href="#">关于我们</a></li>
+				</ul>
+				<div class="nav-line" ></div>
+			</div>
+ 
+		</div>
+ 
+ 
+	</body>
+</html>
