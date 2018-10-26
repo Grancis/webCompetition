@@ -2,6 +2,7 @@ _card_cnt=1;
 var _scroll_timer=null;
 var _width=null;
 var _height=null;
+var _scroll_top=null;
 
 function sleep(n) { 
     var start = new Date().getTime();

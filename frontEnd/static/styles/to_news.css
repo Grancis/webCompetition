@@ -1,4 +1,4 @@
-@keyframes news_block{
+@keyframes to_big{
     from{transform: scale(0,0)}
     to{transform: scale(1,1)}
 }
@@ -23,14 +23,81 @@
     left: 32%;
     top:22%;
     width: 34%;
-    z-index: 3000000;
+    z-index: 3000;
 }
 
 .news-block{
     height: 360px;
     margin-top: 40px;
     margin-bottom: -20px;
-    margin-left: 2vw;
+    margin-left: 3vw;
     max-width: 300px;
-    animation: news_block 0.5s;
+    opacity: 0.92;
+    transition: opacity 0.5s,transform 0.5s;
+    animation: to_big 0.5s;
+    z-index: 2000;
+}
+.news-block:hover{
+    opacity: 1;
+    transform: scale(1.02,1.02);
+}
+
+.article-block{
+    position: absolute;
+    top: 4vh;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    transform: scale(0,0);
+    overflow:hidden;
+    background: white;
+    opacity: 0.92;
+    transition: all;
+    transition-duration: 0.4s;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.article-block-full{
+    z-index: 2001;
+    transform: scale(1,1);
+    
+}
+
+.btn-article{
+    width: 4vw;
+    height: 4vw;
+    background: white;
+    border-radius: 2vw;
+    opacity: 0.92;
+    position: fixed;
+    right:15%;
+    top: 50vh;
+    font-size: 2vw;
+    padding-top: 1vw;
+    cursor: pointer;
+    animation: to_big 0.5s;
+    /* transition: transform 0.5s; */
+}
+.btn-top,.btn-close{
+    transition: transform 0.5s;
+}
+.btn-close{
+    top: 60vh;
+}
+
+.btn-article span{
+    transition: transform 0.5s;
+}
+
+.btn-top:hover span{
+    transform: translateY(-0.5vw);
+}
+
+.btn-close:hover span{
+    transform: rotate(180deg);
+}
+
+.clear-box{
+    transform: scale(0,0);
 }
