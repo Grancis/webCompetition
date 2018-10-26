@@ -5,6 +5,7 @@ function infoSearchClick(){
     card_beside=$(".card-beside");
     arrow=$(".box-arrow");
     indicate_bar=$(".indicate-bar");
+    nav_dot=$("#nav-info");
 
     caption=$("#card-caption-info");
     box_search=$("#box-search-info");
@@ -16,6 +17,7 @@ function infoSearchClick(){
     clearEle(caption);
     $(card_center).removeAttr("onmouseover");
     $(card_center).removeAttr("onmouseout");
+    // $(card_center).addClass("card-info-transition");
 
     /* rebuild page for info */
     $("body").css("overflow-y","scroll");   
@@ -24,15 +26,10 @@ function infoSearchClick(){
     $(box_search).addClass("box-search-info-full");
     $(btn_search).removeAttr("onClick");
     $(btn_search).attr("onClick","infoSearchClickFull()");
+    $(nav_dot).click();
 }
 
-function clearEle(objs){
-    $.each(objs, function (index, item) { 
-        //  $(item).css("left","0px");
-         $(item).fadeOut();
-         $(item).remove();
-    });
-}
+
 
 function infoSearchClickFull(){
     ;
