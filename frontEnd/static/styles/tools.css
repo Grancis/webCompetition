@@ -7,23 +7,24 @@
 body {
     background: linear-gradient(156deg, #f093fb 0%, #f5576c 100%);
     background-size: 100%, 100%;
-
+overflow-x: hidden;
 }
 
 .box-body {
     background: url(../image/tools.png) no-repeat fixed center 200%;
     background-size: 40% 80%;
-    height: 1300px;
+    height: 1380px;
 }
 
-
 #menu {
+    float: left;
     width: 40%;
     height: 3%;
-    margin: 15% 30% 5%;
-    background-color: #FFFFFF;
+    margin: 15% 30% 3%;
     border-radius: 30px;
     cursor: pointer;
+  background-color: #FFFFFF;
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.16);
 }
 
 #menu li {
@@ -36,11 +37,11 @@ body {
     list-style: none;
 }
 
-.menu>.active::after{
+.menu > .active::after {
     content: "";
     border: 20px solid transparent;
-    border-top: 20px solid  #f5576c ;
-   position: relative;
+    border-top: 20px solid #f093fb;
+    position: relative;
     top: 44px;
     left: -25px;
     animation: nav-dot 0.5s;
@@ -49,38 +50,28 @@ body {
 
 @keyframes nav-dot {
     from {
-        top:25px;
+        top: 25px;
     }
     to {
-        top:44px;
+        top: 44px;
     }
 }
+
 .show {
+    float: left;
     height: 10%;
     margin: 0 auto;
     background-color: #FFFFFF;
     border-radius: 30px;
     list-style: none;
+    line-height: 32px;
+
 }
 
-#menu1 {
-    width: 60%;margin-left: 30%;
-}
+#submenu{
+    width: 100%;
+display: flex;
 
-#menu2 {
-    width: 50%;margin-left: 30%;
-}
-
-#menu3 {
-    width: 50%;margin-left: 30%;
-}
-
-#menu4 {
-    width: 50%;margin-left: 30%;
-}
-
-#menu5 {
-    width: 60%;margin-left: 30%;
 }
 
 .active {
@@ -88,6 +79,7 @@ body {
 }
 
 .show {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.16);
     opacity: 0;
     cursor: pointer;
 }
@@ -101,7 +93,7 @@ body {
     float: left;
     text-align: center;
     line-height: 30px;
-    width: 14%;
+    width: 120px;
     background-color: #FFFFFF;
     border-radius: 30px;
 }
@@ -113,11 +105,10 @@ body {
 .process {
     margin: 3% auto;
     border-radius: 20px;
-    width: 50%;
+    width: 100%;
     background: #FFFFFF;
     opacity: 0.92;
     line-height: 2em;
-    box-shadow: 0 10px 32px 5px rgba(0, 0, 0, 0.16);
 
 }
 
@@ -132,14 +123,14 @@ body {
 }
 
 .process p {
-    margin-left: 4%;
+    padding: 1% 4%;
 
 }
 
 #content {
-    margin-top: 10%;
 }
-.article-active{
+
+.article-active {
 
     margin: 3% auto;
     border-radius: 20px;
@@ -150,13 +141,17 @@ body {
     box-shadow: 0 10px 32px 5px rgba(0, 0, 0, 0.16);
 
 }
-.article-active p{
-   padding: 3% 3% ;
+
+.article-active > p {
+    padding: 3% 3%;
     text-indent: 2em;
+    line-height: 2em;
 }
-.article-hide{
+
+.article-hide {
     display: none;
 }
-#content2,#content3,#content4,#content5{
+
+#content2, #content3, #content4, #content5 {
     display: none;
 }
