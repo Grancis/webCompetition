@@ -8,6 +8,7 @@
     <link href="css/info.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/d3/4.13.0/d3.min.js"></script>
     <script src="js/info.js"></script>
 </head>
 <body id="grad1">
@@ -15,7 +16,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul style="text-align:right;padding-right:0;">
-                    <img alt="Brand" src="img/logo.png" style="height:100px; width:100px">
+                    <img id="Brand" alt="Brand" src="img/logo.png" style="height:100px; width:100px">
                 </ul>
                 <ul style="width:300px;padding:0;list-style:none">
                     <li style="font-size:30px;color:white;font-weight: 700;text-align: left">创业盒子</li>
@@ -39,7 +40,192 @@
                     </form>
                 </div>
             </div>
+            <div class="row" >
+                <div id="namanana" class="nav-box" style="display:none">
+                    <div class="nav-line" ></div>
+                    <ul id="menu">
+                        <li id="basic" class="current"><a onclick="Basic()">基本信息</a></li>
+                        <li id="invest"><a onclick="Invest()">投资族谱</a></li>
+                        <li id="position"><a onclick="Position()">任职族谱</a></li>
+                        <li id="family"><a onclick="Family()">企业族谱</a></li>
+                    </ul>
+                </div>
+            </div>
             <div id="result">
+            </div>
+            <div id="basic_card" style="display:none">
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title">基本信息</h5>
+                        <!-- Table -->
+                        <table class="table" style="margin-top:30px;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <b>统一社会信用代码：</b>
+                                        <span id="id"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>企业名称</b>
+                                        <span id="basicInfoName"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>类型：</b>
+                                        <span id="type"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>法定代表人：</b>
+                                        <span id="legal_person"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>注册资本：</b>
+                                        <span id="reg_capt"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>成立日期： </b>
+                                        <span id="reg_date"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>营业期限自：</b>
+                                        <span id="startDate"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>营业期限至：</b>
+                                        <span id="stopDate"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>登记机关： </b>
+                                        <span id="reg_auth"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>核准日期： </b>
+                                        <span id="checkDate"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>登记状态：</b>
+                                        <span id="state"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>住所：</b>
+                                        <span id="address"></span>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>经营范围： </b>
+                                        <span id="field"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class='card-block'>
+                        <h5 class="card-title">股权结构</h5>
+                        <div style="padding-bottom:0px">
+                            <p style="padding-bottom:0px; font-size:15px">
+                                <b>企业控股人:</b>
+                                <b id="corpController"></b>
+                            </p>
+                        </div>
+                        <!-- Table -->
+                        <table class="table" style="margin-top:30px;">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>股东名称</th>
+                                <th>股东类型</th>
+                                <th>证照/证件类型</th>
+                                <th>证照/证件号码</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody id="shareholder-list">
+                            <tr class="shareholder-template">
+                                <td id="sh_no"></td>
+                                <td id="sh_bf_name"></td>
+                                <td id="sh_bf_type"></td>
+                                <td>非公示项 </td>
+                                <td>非公示项 </td>
+                                <td id="sh_datail"><a class="sh_detail_href" data-toggle='modal' data-target='#note'>查看详情</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class='card'>
+                    <div class='card-block'>
+                        <h5 class="card-title">经营异常</h5>
+                        <!-- Table -->
+                        <table class="table" style="margin-top:30px;">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>列入经营异常名录原因</th>
+                                <th>列入日期</th>
+                                <th>作出决定机关(列入)</th>
+                                <th>移出经营异常名录原因</th>
+                                <th>移出日期</th>
+                                <th>作出决定机关(移出)</th>
+                                <th>移出日期</th>
+                            </tr>
+                            </thead>
+                            <tbody id="irg-list">
+                            <tr class="irg-template">
+                                <td class="irgNo"></td>
+                                <td class="irgReason"></td>
+                                <td class="irgDate"></td>
+                                <td class="deIrgReason">非公示项</td>
+                                <td class="deIrgDate">非公示项</td>
+                                <td class="deIrgAuth"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="invest_card" style="display:none">
+                <div class="card">
+                    <div style="text-align:right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                显示层数<p id="curlayer" >5</p> 
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="load_relation_graph(2)">2</a></li>
+                                <li><a onclick="load_relation_graph(3)">3</a></li>
+                                <li><a onclick="load_relation_graph(4)">4</a></li>
+                                <li><a onclick="load_relation_graph(5)">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <svg width="800" height="800"></svg>
+                </div>
             </div>
         </div>
         <button class="return-top">
@@ -47,5 +233,4 @@
         </button>
     </div>
 </body>
-
 </html>

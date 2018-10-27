@@ -37,17 +37,20 @@ form {
     margin: 0 auto;
 }
 
-input, button {
+#submitbtn {
     border: none;
     outline: none;
 }
-
+.return-top {
+    border: none;
+    outline: none;
+}
 input {
     width: 450px;
     height: 35px;
 }
 
-button {
+#submitbtn {
     height: 30px;
     width: 80px;
     cursor: pointer;
@@ -74,12 +77,60 @@ button {
     background: linear-gradient(114deg,#ef506d 0%, #f9ab4b 100%); /* 标准的语法（必须放在最后） */
     border-radius: 20px 20px 20px 20px;
 }
+/*导航菜单*/
+.nav-box{
+    margin: 0 auto;
+    position: relative;
+    background: white;
+    height:30px;
+    font-size:13px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #969696;
+}
+.nav-box ul{
+    margin: 0 0 0 -40px;
+    text-align: center;
+    
+}
+.nav-box ul li{
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    display:inline-block;
+    margin:2px 2px 2px 2px;
+    line-height:26px;
+    cursor:pointer;
+    position:relative;
+    z-index:10;
+}
+
+.nav-box ul li a{
+    text-decoration:none; 
+    color:black; 
+    display:block;
+    cursor:pointer;
+    z-index:15;
+}
+
+.nav-box .nav-line {
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* 标准的语法（必须放在最后） */
+    position:absolute;
+    height: 26px;
+    margin:2px 2px 2px 2px;
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    border-radius:20px;
+}	
 .card{
     margin: 0 auto;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.92);
     width: 70%;
     margin-bottom: 30px;
+}
+#result .card{
+    cursor:pointer;
 }
 
 .card-block{
@@ -107,7 +158,7 @@ button {
 }
 
 #slide{
-    height: 550px;
+    height: 650px;
     overflow-y: auto;
 }
 
@@ -124,5 +175,23 @@ button {
 }
 
 #result{
-    height: 80%;
+    height: 90%;
+}
+
+.table>tbody>tr>th{
+    border:0px;
+}
+
+.table>tbody>tr>td{
+    border:0px;
+}
+
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.link {
+    fill: none;
+    stroke: #bbb;
 }
