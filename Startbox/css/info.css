@@ -106,11 +106,23 @@ button {
     Float:left
 }
 
-#result{
-    height: 450px;
+#slide{
+    height: 550px;
     overflow-y: auto;
 }
 
-#result::-webkit-scrollbar {
+#slide::-webkit-scrollbar {
     display:none
+}
+
+.return-top{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    background:rgba(0, 0, 0, 0);
+    outline:none;
+}
+
+#result{
+    height: 80%;
 }
