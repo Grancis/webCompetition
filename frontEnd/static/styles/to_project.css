@@ -1,0 +1,31 @@
+.box-body-project{
+    background-image: linear-gradient(156deg, #f093fb 0%, #f5576c 100%);
+    position: fixed;
+    background-size:100% 100%;
+}
+
+.card-project-full{
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 30% auto;
+    width: 100%;
+    height: 100%;
+    top:2vh;
+    left: 0;
+    transition: transform 1s,background-size 1.5s;
+}
+
+/* display control */
+.display_none{
+    display: none;
+}
+
+/* shrink to none */
+.clear-box{
+    transform: scale(0,0);
+}
+
+/* show shrinked box */
+.no-shrinking{
+    transform: scale(1,1);
+    opacity: 0.92;
+}

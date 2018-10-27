@@ -12,11 +12,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/home.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/info_search.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_news.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_tools.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_project.css" />
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/news.css" /> -->
     <script src="./static/jslib/nav.js"></script>
     <script src="./static/jslib/home.js"></script>
     <script src="./static/jslib/info_search.js"></script>
     <script src="./static/jslib/to_news.js"></script>
+    <script src="./static/jslib/to_tools.js"></script>
+    <script src="./static/jslib/to_project.js"></script>
 </head>
 <body>
     <div class="box-logo">
@@ -30,10 +34,10 @@
         <div class="box-nav" role="navigation">
             <ul>
                 <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="index.html">首页</a></li>
-                <li id="nav-info" onclick="changePage(this)"><a href="#">企业信息</a></li>
-                <li id="nav-news" onclick="changePage(this)"><a href="#">热点新闻</a></li>
-                <li id="nav-project" onclick="changePage(this)"><a href="#">项目展示</a></li>
-                <li id="nav-tools" onclick="changePage(this)"><a href="#">创业工具</a></li>
+                <li id="nav-info" onclick="changePage(this)"><a href="javascript:toInfoFromNav()">企业信息</a></li>
+                <li id="nav-news" onclick="changePage(this)"><a href="javascript:toNewsFromNav()">热点新闻</a></li>
+                <li id="nav-project" onclick="changePage(this)"><a href="javascript:toProjectFromNav()">项目展示</a></li>
+                <li id="nav-tools" onclick="changePage(this)"><a href="javascript:toToolsFromNav()">创业工具</a></li>
             </ul>
         </div>
     <div class="box-body">
@@ -41,21 +45,21 @@
 
         <div class="box-card">
 
-            <div class="card card-center scroll-transition card-info" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
+            <div class="card card-center scroll-transition card-info card-center-animate" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
                     <!-- onmouseover="stopScroll()" onmouseout="startScroll()" -->
                 <span class="card-caption" id="card-caption-info">
                     企业信息查询
                 </span>
-                <div class="card-content box-search box-search-info" id="box-search-info">
-                    <input class="search-input" id="search-input-info">
+                <form class="card-content box-search box-search-info" id="box-search-info">
+                    <input class="search-input" id="search-input-info" name="corpname">
                     
                     <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
                             <span class="glyphicon glyphicon-search"></span>
                     </div>
-                </div>
+                </form>
             </div>
 
-            <div class="card card-beside card-beside-left scroll-transition card-news" id="card-news">
+            <div class="card card-beside card-beside-left scroll-transition card-news card-beside-animate" id="card-news">
                 <span class="card-caption" id="card-caption-news">
                     商业新闻
                 </span>
@@ -89,13 +93,13 @@
                 </div>
             </div>
 
-            <div class="card card-beside card-beside-right scroll-transition" id="card-project">
+            <div class="card card-project card-beside card-beside-right scroll-transition card-beside-animate" id="card-project">
 
                 <span class="card-caption" id="card-caption-project">
                     项目展示
                 </span>
 
-                <div class="box-project-contents">
+                <div class="box-project-contents" onclick="projectBlockClick()">
                     <div class="card-content card-content-project">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-1.png" class="img-responsive">
@@ -106,7 +110,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project">
+                    <div class="card-content card-content-project" onclick="projectBlockClick()">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-2.png" class="img-responsive">
                         </div>
@@ -116,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project">
+                    <div class="card-content card-content-project" onclick="projectBlockClick()">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-3.png" class="img-responsive">
                         </div>
@@ -126,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project">
+                    <div class="card-content card-content-project" onclick="projectBlockClick()">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-4.png" class="img-responsive">
                         </div>
@@ -136,7 +140,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project">
+                    <div class="card-content card-content-project" onclick="projectBlockClick()">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-5.png" class="img-responsive">
                         </div>
@@ -150,7 +154,7 @@
             </div>
 
 
-            <div class="card card-beside card-beside-hidden-right scroll-transition" id="card-tools">
+            <div class="card card-tools card-beside card-beside-hidden-right scroll-transition" id="card-tools">
 
                 <div class="card-content card-content-tools" id="card-caption-tools">
                     <div class="card-inside card-inside-tools" >
@@ -167,7 +171,7 @@
                 </div>
 
 
-                <div class="card-content card-content-tools">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             工商注册
@@ -181,7 +185,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             知识产权
@@ -195,7 +199,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             经营许可
@@ -209,7 +213,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             人事管理
@@ -223,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             投资融资

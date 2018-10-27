@@ -1,7 +1,4 @@
-@keyframes to_big{
-    from{transform: scale(0,0)}
-    to{transform: scale(1,1)}
-}
+
 
 .box-body-news{
     background-image: linear-gradient(156deg, #00bcff 0%, #2fc87b 100%);
@@ -16,6 +13,7 @@
     height: 100%;
     top:2vh;
     left: 0;
+    transition: transform 1s,background-size 1.5s;
 }
 
 .box-search-news{
@@ -28,9 +26,9 @@
 
 .news-block{
     height: 360px;
-    margin-top: 40px;
-    margin-bottom: -20px;
-    margin-left: 3vw;
+    margin-top: 4vw;
+    margin-bottom: -2vw;
+    margin-left: 2vw;
     max-width: 300px;
     opacity: 0.92;
     transition: opacity 0.5s,transform 0.5s;
@@ -56,6 +54,7 @@
     transition-duration: 0.4s;
     border-radius: 20px;
     padding: 2em;
+    z-index: 99999999;
 }
 
 .article-block-full{
@@ -64,40 +63,6 @@
     
 }
 
-.btn-article{
-    width: 4vw;
-    height: 4vw;
-    background: white;
-    border-radius: 2vw;
-    opacity: 0.92;
-    position: fixed;
-    right:15%;
-    top: 50vh;
-    font-size: 2vw;
-    padding-top: 1vw;
-    cursor: pointer;
-    animation: to_big 0.5s;
-    /* transition: transform 0.5s; */
-}
-.btn-top,.btn-close{
-    transition: transform 0.5s;
-}
-.btn-close{
-    top: 60vh;
-}
 
-.btn-article span{
-    transition: transform 0.5s;
-}
 
-.btn-top:hover span{
-    transform: translateY(-0.5vw);
-}
 
-.btn-close:hover span{
-    transform: rotate(180deg);
-}
-
-.clear-box{
-    transform: scale(0,0);
-}

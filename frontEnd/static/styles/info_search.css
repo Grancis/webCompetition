@@ -1,3 +1,8 @@
+@keyframes to_big_info{
+    from{transform: scale(0,0)}
+    to{transform: scale(1,1)}
+}
+
 .info-transition{
     
     /* transition: left 1s;
@@ -17,12 +22,46 @@
     height: 100%;
     top:2vh;
     left: 0;
+    transition: transform 1s,background-size 1.5s;
 }
-/* .box-search-info{
-
-} */
+.box-search-info-full{
+    position: fixed;
+    left: 32%;
+    top:22%;
+    width: 34%;
+    z-index: 3000;
+}
 .box-search-info-full{
     left: 32%;
     top:20%;
     width: 36%;
+}
+
+
+
+/* card-block */
+.card-company{
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.92);
+    width: 100%;
+    margin-top: 30px;
+    animation: to_big_info 0.5s;
+}
+
+.card-company{
+    padding: 20px 30px 20px 30px;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.card-title{
+    background: -webkit-linear-gradient(246deg,#ef506d 0%, #f9ab4b 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(246deg,#ef506d 0%, #f9ab4b 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(246deg, #ef506d 0%, #f9ab4b 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(246deg,#ef506d 0%, #f9ab4b 100%); /* 标准的语法（必须放在最后） */
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    font-size: 1.5vw;
 }

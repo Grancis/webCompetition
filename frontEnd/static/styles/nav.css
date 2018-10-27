@@ -4,6 +4,10 @@
 
 }
 
+@keyframes to_big{
+    from{transform: scale(1.2,1.2)}
+    to{transform: scale(1,1)}
+}
 
 
 .box-logo{
@@ -53,12 +57,13 @@
 }
 
 .box-nav ul li{
-float: left;
+    float: left;
     margin-left: 10%;
     position: relative;
     list-style: none;
     display: inline;
     /* margin-right: 140px; */
+    animation: to_big 1s;
 }
 
 
