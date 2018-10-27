@@ -1,39 +1,58 @@
-$(function(){
-    var menu = $("#menu");
-    var defWidth = menu.find(".current").innerWidth();
-    var defLeft = menu.find(".current").position().left;
-    menu.css({backgroundPositionX: defLeft});
-    menu.find("li").hover(function(){
-        $(".current").removeClass("highlight"); 
-        var index = $(this).index();
-        var curLeft = $(this).position().left;
-        var curWidth = menu.find("li").eq(index).outerWidth();
-        var menuLeft = curLeft + (curWidth/2) -50;
-        menu.stop().animate({backgroundPositionX:menuLeft},300);
-
-    },function(){
-        menu.stop().animate({backgroundPositionX:defLeft},300);
-        $(".current").addClass("highlight"); 
-    })
-});
+function nav() {
+	var $liCur = $(".nav-box ul li.current"),
+	curP = $liCur.position().left,
+	curW = $liCur.outerWidth(true),
+	$slider = $(".nav-line"),
+	$targetEle = $(".nav-box ul li a"),
+	$navBox = $(".nav-box");
+	console.log($liCur.attr("id"));
+	console.log(curP);
+	$liCur.unbind();
+	$slider.unbind();
+	$targetEle.unbind();
+	$navBox.unbind();
+	$slider.stop(true, true).animate({
+		"left":curP,
+		"width":curW
+	});
+	$targetEle.mouseenter(function () {
+		var $_parent = $(this).parent(),
+		_width = $_parent.outerWidth(true),
+		posL = $_parent.position().left;
+		console.log(posL);
+		$slider.stop(true, true).animate({
+			"left":posL,
+			"width":_width
+		}, "fast");
+	});
+	$navBox.mouseleave(function (cur, wid) {
+		cur = curP;
+		wid = curW;
+		console.log(cur);
+		$slider.stop(true, true).animate({
+			"left":cur,
+			"width":wid
+		}, "fast");
+	});
+}
 
 function refreash(){
     $("#result").empty();
     $("#result").append('<div id="project-template" class="card"><div class="card-block"><h5 class="card-title"></h5><p class="card-text"></div></div>');
     var curid = $(".current").attr("id");
     $("#"+curid).removeClass("current");
-    $("#"+curid).removeClass("highlight");
+	
 }
 
 function Wowgo(){
     refreash();
     $("#wowgo").addClass("current"); 
-    $(".current").addClass("highlight"); 
+    nav();
     var project_template = $("#project-template");
     var result = $("#result");
     var graph1 = project_template.clone();
     setTimeout(function(){
-        graph1.find(".card-text").text("2016年户外徒步登山类出行人数已高达1600万，预计2020年我国户外运动总产值将达4000亿，赢来户外市场的爆发期。但是，从2014-2016年，中国户外行业共发生失踪、失联事故1700余起，由此产生的搜救成本3000余万元。然而找路难、危险多、无信号、易失联等难题，无一不阻拦着户外行业的发展。Wowgo我行提供国内唯一的规范化线路体系、精准导航无网通讯的客户端、基于物联网技术的智能监控系统，是国内首家标准化户外信息和安全服务的提供。");
+        graph1.find(".card-text").text("-2016年户外徒步登山类出行人数已高达1600万，预计2020年我国户外运动总产值将达4000亿，赢来户外市场的爆发期。但是，从2014-2016年，中国户外行业共发生失踪、失联事故1700余起，由此产生的搜救成本3000余万元。然而找路难、危险多、无信号、易失联等难题，无一不阻拦着户外行业的发展。Wowgo我行提供国内唯一的规范化线路体系、精准导航无网通讯的客户端、基于物联网技术的智能监控系统，是国内首家标准化户外信息和安全服务的提供。");
         graph1.css("opacity","0");
 		result.append(graph1);
 		graph1.animate({opacity:1},1000);
@@ -74,19 +93,12 @@ function Wowgo(){
 		graph5.animate({opacity:1},1000);
     }, 500 * 4);
     project_template.remove();
-
-    
-
-    
-
-    
-   
 }
 
 function DoctorCan(){
     refreash();
     $("#doctorCan").addClass("current"); 
-    $(".current").addClass("highlight"); 
+    nav();
     var project_template = $("#project-template");
     var result = $("#result");
     var graph1 = project_template.clone();

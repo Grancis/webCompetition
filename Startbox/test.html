@@ -18,6 +18,7 @@
 				$slider = $(".nav-line"),
 				$targetEle = $(".nav-box ul li a"),
 				$navBox = $(".nav-box");
+				$slider.css("z-index","-1");
 				$slider.stop(true, true).animate({
 					"left":curP,
 					"width":curW
@@ -53,7 +54,7 @@
 				width: 100%;
 				height: 70px;
 				
-				/*background-color: yellow;*/
+			/*background-color: yellow;*/
 				}
 			.nav-box{
 				width: 50%;
@@ -64,42 +65,45 @@
 			}
 			.nav-box ul{
 				list-style: none;
-						
 			}
 			.nav-box ul li{
 				float: left;
 				font-size: 14px;
 				font-family: "微软雅黑";
-				
+				color:black;
 				height: 30px;
 				line-height: 30px;
 				padding: 0 12px;
-			/*	background-color: #F5F5F5;*/
 			}
 			.nav-box .nav-line {
-			    background: none repeat scroll 0 0 #35C4FD;
+			    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+			    background: -webkit-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Safari 5.1 - 6.0 */
+				background: -o-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Opera 11.1 - 12.0 */
+				background: -moz-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Firefox 3.6 - 15 */
+				background: linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* 标准的语法（必须放在最后） */
 			    bottom: 0;
 			    font-size: 0;
-			    height: 25px;
+			    height: 15px;
 			    left: 0;
 			    line-height: 2px;
 			    position: absolute;
 			    width: 52px;
-			}	
-			
+			    z-index:-1
+			}				
 		</style>
 	</head>
 	<body>
 		<div class="banner" >
 			<div class="nav-box">
-				<ul>
-					<li class="cur"><a href="#">首页</a></li>
-					<li><a href="#">论坛</a></li>
-					<li><a href="#">商务合作</a></li>
-					<li><a href="#">下载专区</a></li>
-					<li><a href="#">关于我们</a></li>
-				</ul>
 				<div class="nav-line" ></div>
+				<ul>
+					<li class="cur"><a href="#">Wowgo</a></li>
+					<li><a href="#">智能医生</a></li>
+					<li><a href="#">旅行助手</a></li>
+					<li><a href="#">创业盒子</a></li>
+					<li><a href="#">公司金融</a></li>
+				</ul>
+				
 			</div>
  
 		</div>
