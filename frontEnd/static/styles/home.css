@@ -91,22 +91,23 @@ body{
 .box-arrow{
     position: absolute;
     border-radius: 50%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     height: 80px;
     width: 80px;
     z-index: 1000;
-    transition: background;
+    transition: box-shadow,background;
     transition-duration: 0.5s;    /* box-shadow:0 0 4px;  */
 }
 
-.box-arrow:hover{
-    background: orange;
-}
+
 
 .box-arrow img{
     position: absolute;
     left: 25px;
     top: 25px;
+    transform: translateX(0);
+    box-shadow:0 8px 26px 1px rgba(98, 211, 231, 0);
+    transition: transform 0.5s
 }
 
 .arrow-left{
@@ -119,6 +120,16 @@ body{
     top: 46%;
 }
 
+.arrow-right:hover img{
+    transform: translateX(8px);
+}
+.arrow-left:hover img{
+    transform: translateX(-8px);
+}
+.arrow-right:hover,.arrow-left:hover{
+    background-color: white;
+    box-shadow: 0 8px 50px 1px rgba(98, 211, 231, 0.4);
+}
 .box-indicate-bar{
     position: absolute;
     width: 50%;
@@ -221,6 +232,9 @@ body{
     border-radius: 18px;
     outline: none;
     padding-left: 1em;
+}
+.search-input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 .search-btn{
     width:20%;

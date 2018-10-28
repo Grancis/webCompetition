@@ -45,9 +45,14 @@ function infoSearchClick(){
     if(searchKeyword==""){;}
     else{
         $('input[name="corpname"]').val(searchKeyword);
-        infoSearchClickFull();
+       
     }
-    },500)
+    },1000)
+    setTimeout(() => {
+        if(searchKeyword!=""){
+            infoSearchClickFull(searchKeyword);
+        }
+    }, 500);
     // $(box_search).css("transition","tranform 1s");
 
 }
@@ -85,7 +90,7 @@ function toInfoFromNav(){
 
 function createInfoSearch(){
     box_search=$('<form class="card-content box-search box-search-info box-search-info-full" id="box-search-info"></form>');
-    e_input=$('<input class="search-input" id="search-input-info" name="corpname">');
+    e_input=$('<input class="search-input" id="search-input-info" name="corpname" placeholder="搜索公司名">');
     e_btn=$('<div class="search-btn" id="search-btn-info" onclick="infoSearchClickFull()"></div>');
     e_icon=$('<span class="glyphicon glyphicon-search"></span>');
 
@@ -99,8 +104,14 @@ function createInfoSearch(){
 
 
 /* do search */
-function infoSearchClickFull(){
-    searchKeyword = $('input[name="corpname"]').val();
+function infoSearchClickFull(s_keyword){
+    var searchKeyword = null;
+    if(s_keyword){
+        searchKeyword=s_keyword;
+    }
+    else{
+        searchKeyword=$('input[name="corpname"]').val();
+    }
     var searchURL = "http://118.24.43.47:8089/search?keyword="+searchKeyword;
     // var searchData = {keyword: searchKeyword};
     // console.log(searchKeyword);
@@ -120,11 +131,20 @@ function infoSearchClickFull(){
                  if(item.irgOpts){
                      item.name=item.name+"【该公司被列入经营异常名录】";
                  }
-                //  setTimeout(function(){
-                     card=createCompanyBlock(item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
-                     $(box_content).append(card);
-                     $(card).animate({opacity:1},500);
-                //  },500*cnt);
+                 if(cnt<10){
+                    setTimeout(function(){
+                        card=createCompanyBlock(item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
+                        $(box_content).append(card);
+                        $(card).animate({opacity:1},500);
+                    },250*cnt);
+                 }
+                 else{
+                    setTimeout(function(){
+                        card=createCompanyBlock(item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
+                        $(box_content).append(card);
+                        $(card).animate({opacity:1},500);
+                    },250*10);
+                 }
 
             });
         }
@@ -164,10 +184,10 @@ $(window).scroll(function(){
             _scroll_down_cnt=_scroll_down_cnt+(scroll_t)-_scroll_up;
             _scroll_up_cnt=0;
         }
-        if(_scroll_down_cnt>300||scroll_t==0){
+        if(_scroll_down_cnt>300){
             $(".box-search-info-full").addClass("clear-box");
         }
-        if(_scroll_up_cnt>300){
+        if(_scroll_up_cnt>300||scroll_t==0){
             $(".box-search-info-full").removeClass("clear-box");
         }
         _scroll_up=scroll_t;

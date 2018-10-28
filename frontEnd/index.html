@@ -36,7 +36,7 @@
                 <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="index.html">首页</a></li>
                 <li id="nav-info" onclick="changePage(this)"><a href="javascript:toInfoFromNav()">企业信息</a></li>
                 <li id="nav-news" onclick="changePage(this)"><a href="javascript:toNewsFromNav()">热点新闻</a></li>
-                <li id="nav-project" onclick="changePage(this)"><a href="javascript:toProjectFromNav()">项目展示</a></li>
+                <li id="nav-project" onclick="changePage(this)"><a href="javascript:toProjectFromNav('wowgo')">项目展示</a></li>
                 <li id="nav-tools" onclick="changePage(this)"><a href="javascript:toToolsFromNav()">创业工具</a></li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                     企业信息查询
                 </span>
                 <form class="card-content box-search box-search-info" id="box-search-info">
-                    <input class="search-input" id="search-input-info" name="corpname">
+                    <input class="search-input" id="search-input-info" name="corpname" placeholder="搜索公司名">
                     
                     <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
                             <span class="glyphicon glyphicon-search"></span>
@@ -99,7 +99,7 @@
                     项目展示
                 </span>
 
-                <div class="box-project-contents" onclick="projectBlockClick()">
+                <div class="box-project-contents" onclick="projectBlockClick('doctorCan')" id="doctorCan">
                     <div class="card-content card-content-project">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-1.png" class="img-responsive">
@@ -110,7 +110,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick()">
+                    <div class="card-content card-content-project" onclick="projectBlockClick('surgery')" id="surgery">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-2.png" class="img-responsive">
                         </div>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick()">
+                    <div class="card-content card-content-project" onclick="projectBlockClick('salary')" id="salary">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-3.png" class="img-responsive">
                         </div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick()">
+                    <div class="card-content card-content-project" onclick="projectBlockClick('hospital')" id="hospital">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-4.png" class="img-responsive">
                         </div>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick()">
+                    <div class="card-content card-content-project" onclick="projectBlockClick('this')" id="wowgo">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-5.png" class="img-responsive">
                         </div>
@@ -279,6 +279,9 @@
             <p>daahgkdaghadglkdakjglajdlgj</p>
             <p>daahgkdaghadglkdakjglajdlgj</p>
             <p>daahgkdaghadglkdakjglajdlgj</p> -->
+            <div id="result">
+
+            </div>
     </div>
 
 </body>

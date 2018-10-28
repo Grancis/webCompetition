@@ -1,3 +1,5 @@
+
+
 .box-body-project{
     background-image: linear-gradient(156deg, #f093fb 0%, #f5576c 100%);
     position: fixed;
@@ -14,6 +16,114 @@
     transition: transform 1s,background-size 1.5s;
 }
 
+
+
+
+
+
+/* before styles */
+/*导航菜单*/
+#row-nav{
+    /* text-align: center; */
+    text-align: center;
+}
+.nav-box{
+    position: absolute;
+    background: white;
+    height:30px;
+    font-size:13px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #969696;
+    display: inline-block;
+    /* margin-left: 15vw; */
+    margin-left: -280px;
+}
+.nav-box ul{
+    /* margin: 0 0 0 -40px; */
+    text-align: center;
+    display: inline-block;
+    
+    padding: 1px;
+    
+}
+.nav-box ul li{
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    margin:2px 2px 2px 2px;
+    line-height:26px;
+    cursor:pointer;
+    position:relative;
+    z-index:10;
+    display: inline-block;
+}
+
+.nav-box ul li a{
+    text-decoration:none; 
+    color:black; 
+    display:block;
+    cursor:pointer;
+    z-index:15;
+    display: inline-block;
+}
+
+.nav-box .nav-line {
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* 标准的语法（必须放在最后） */
+    position:absolute;
+    height: 26px;
+    margin:2px 2px 2px 2px;
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    border-radius:20px;
+    display: inline-block;
+}	
+	
+
+.card-row-project{
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.92);
+    width: 70%;
+    margin-top: 30px;
+    animation: to_big 0.5s;
+}
+
+.card-row-project-block{
+    padding: 20px 30px 20px 30px;
+    font-size: 13px;
+    line-height: 15px;
+    
+}
+
+.card-row-project-title{
+    background: -webkit-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg,#b721ff 0%, #21d4fd 100%); /* 标准的语法（必须放在最后） */
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.card-row-project-text{
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.row{
+    margin-top: 30px;
+}
+#result{
+    margin-top: 30px;
+    position: absolute;
+}
+
+
+
+
+
 /* display control */
 .display_none{
     display: none;
@@ -29,3 +139,4 @@
     transform: scale(1,1);
     opacity: 0.92;
 }
+
