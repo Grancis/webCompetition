@@ -7,7 +7,7 @@
 body {
     background: linear-gradient(156deg, #f093fb 0%, #f5576c 100%);
     background-size: 100%, 100%;
-overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .box-body {
@@ -18,24 +18,41 @@ overflow-x: hidden;
 
 #menu {
     float: left;
-    width: 40%;
+    width: 39.5%;
     height: 3%;
     margin: 15% 30% 3%;
     border-radius: 30px;
     cursor: pointer;
-  background-color: #FFFFFF;
+    background-color: #FFFFFF;
     box-shadow: 0 16px 24px rgba(0, 0, 0, 0.16);
+    z-index: 5;
 }
 
 #menu li {
     float: left;
+    position: relative;
     text-align: center;
     line-height: 32px;
-    width: 20%;
-    background-color: #FFFFFF;
+    width: 120px;
     border-radius: 30px;
     list-style: none;
 }
+
+.animate {
+    width: 120px;
+    position: absolute;
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    z-index: 0;
+    border-radius: 32px;
+    height: 32px;
+}
+
+#animate1 {
+    left: 30%;
+    top: 31.5%;
+}
+
+
 
 .menu > .active::after {
     content: "";
@@ -68,20 +85,16 @@ overflow-x: hidden;
 
 }
 
-#submenu{
+#submenu {
     width: 100%;
-display: flex;
-
-}
-
-.active {
-    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    display: flex;
 }
 
 .show {
     box-shadow: 0 16px 24px rgba(0, 0, 0, 0.16);
     opacity: 0;
     cursor: pointer;
+    z-index: 5;
 }
 
 .show ul {
@@ -90,11 +103,11 @@ display: flex;
 }
 
 .show li {
+    position: relative;
     float: left;
     text-align: center;
     line-height: 30px;
     width: 120px;
-    background-color: #FFFFFF;
     border-radius: 30px;
 }
 
@@ -125,9 +138,6 @@ display: flex;
 .process p {
     padding: 1% 4%;
 
-}
-
-#content {
 }
 
 .article-active {
