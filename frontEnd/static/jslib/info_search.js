@@ -36,6 +36,8 @@ function infoSearchClick(){
     box_content=$(".box-content");
     box_toTop=createToTop();
     $(box_content).append(box_toTop);
+    box_toTop=createToTop();
+    $(box_content).append(box_toTop);
     searchKeyword = $('input[name="corpname"]').val();
     setTimeout(function(){
         $(box_search).remove();
@@ -103,15 +105,16 @@ function createInfoSearch(){
 }
 
 
-
 /* do search */
 function infoSearchClickFull(s_keyword){
     var searchKeyword = null;
     if(s_keyword){
         searchKeyword=s_keyword;
+        window.sessionStorage.keyword = s_keyword;
     }
     else{
         searchKeyword=$('input[name="corpname"]').val();
+        window.sessionStorage.keyword = searchKeyword;
     }
     var searchURL = "http://118.24.43.47:8089/search?keyword="+searchKeyword;
     // var searchData = {keyword: searchKeyword};
@@ -132,7 +135,7 @@ function infoSearchClickFull(s_keyword){
                  if(item.irgOpts){
                      item.name=item.name+"【该公司被列入经营异常名录】";
                  }
-                 if(cnt<3){
+                 if(cnt<10){
                     setTimeout(function(){
                         card=createCompanyBlock(item.graphId,item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
                         $(box_content).append(card);
@@ -144,7 +147,7 @@ function infoSearchClickFull(s_keyword){
                         card=createCompanyBlock(item.graphId,item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
                         $(box_content).append(card);
                         $(card).animate({opacity:1},500);
-                    },250*3);
+                    },250*10);
                  }
 
             });
@@ -251,9 +254,37 @@ function initModule(graphId){
     $(box_content).append(nav_box);
     box_result=$('<div id="result"></div>');
     $(box_content).append(box_result);
-
     addToTopBtn(box_content);
     corp_info(graphId);
+}
+
+
+function createBackBtn(){
+    d_back=$('<div class="btn-back btn-article" onclick="goBack()"></div>');
+    d_icon_back=$('<img class="img-responsive" src="./static/image/arrow-right.png">');
+    $(d_back).append(d_icon_back);
+
+    return d_back;
+}
+
+
+function addBackBtn(){
+    console.log(addBackBtn);
+    box_go_back=createBackBtn();
+    $('#result').append(box_go_back);
+    setTimeout(() => {
+        $(box_go_back).css("opacity",0.92);
+    }, 800);
+}
+
+function goBack(){
+    console.log("goBack");
+    $('#box-content').empty();
+    box_search=createInfoSearch();
+    $('#box-content').append(box_search);
+    keyword = window.sessionStorage.keyword;
+    console.log("keyword: " + keyword);
+    infoSearchClickFull(keyword);
 }
 
 function nav2() {
