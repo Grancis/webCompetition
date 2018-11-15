@@ -1,0 +1,25 @@
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}   
+.link {
+    fill: none;
+    stroke: #bbb;
+}
+    
+
+
+.nav-box .nav-line-2 {
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ef506d 0%, #f9ab4b 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg,#ef506d 0%, #f9ab4b 100%); 
+    position:absolute;
+    height: 26px;
+    margin:2px 2px 2px 2px;
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    border-radius:20px;
+    display: inline-block;
+}	
+	

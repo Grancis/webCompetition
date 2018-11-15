@@ -6,10 +6,96 @@
 
 .card-tools-full{
     background-color: rgba(0, 0, 0, 0);
-    background-size: 26% auto;
+    background-size: 20% auto;
     width: 100%;
     height: 100%;
     top:2vh;
     left: 0;
     transition: transform 1s,background-size 1.5s;
+}
+
+
+
+
+
+
+/* before */
+.nav-box-tools-1{
+    text-align: center;
+    margin-left: 180px;
+}
+.nav-box-tools-2{
+    top: 80px;
+    /* margin-left: 80px; */
+}
+
+.nav-box-tools-2 li{
+    float: left;
+}
+
+.nav-box .nav-line-tools-1 {
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* 标准的语法（必须放在最后） */
+    position:absolute;
+    height: 26px;
+    margin:2px 2px 2px 2px;
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    border-radius:20px;
+    display: inline-block;
+}
+
+.nav-box .nav-line-tools-2{
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* 标准的语法（必须放在最后） */
+    position:absolute;
+    height: 26px;
+    margin:2px 2px 2px 2px;
+    padding:0px 15px 0px 15px; /*上，右，下，左*/
+    border-radius:20px;
+    display: inline-block;
+}
+
+.card-row-tools{
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.92);
+    /* width: 70%; */
+    margin-top: 30px;
+    animation: to_big 0.5s;
+}
+
+.card-row-tools-block{
+    padding: 20px 30px 20px 30px;
+    font-size: 13px;
+    line-height: 15px;
+    width: 100%;
+}
+
+.card-row-tools-title{
+    background: none repeat scroll 0 0 rgba(34, 236, 54, 1);
+    background: -webkit-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #f093fb 0%, #f5576c 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);/* 标准的语法（必须放在最后） */
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.card-row-tools-text{
+    font-size: 13px;
+    line-height: 25px;
+}
+
+#result-tools{
+    position: absolute ;
+    top: 100px;
+    width: 70%;
 }

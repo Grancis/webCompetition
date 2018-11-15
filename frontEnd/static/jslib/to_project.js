@@ -1,16 +1,16 @@
 
-
-function projectBlockClick(project_id){
-    toProjectFromNav(project_id);
+function projectBlockClick(clicked_id){
+    toProjectFromNav(clicked_id);
 
 }
 
 function toProjectFromNav(project_id){
-    _page_flag="project";
+   _page_flag="project";
     clearInterval(_scroll_timer);
     card_project=$('<div class="card-project"></div>');
     box_body=$(".box-body");
     box_content=$(".box-content");
+    $(box_body).children().remove();
     $(box_content).children().remove();
     $(box_body).removeClass("box-body-info box-body-news box-body-tools");
     $(box_body).addClass("box-body-project");
@@ -44,7 +44,6 @@ function creatProjectBar(){
     $(nav_box).append(nav_line);
     $(nav_box).append(e_ul);
     box_row.append(nav_box);
-    // $(box_row).append(nav_box);
 
     return box_row;
 }
@@ -57,6 +56,10 @@ function initProject(pro_id){
     $(box_content).append(nav_box);
     box_result=$('<div id="result"></div>');
     $(box_content).append(box_result);
+
+    addToTopBtn(box_content);
+
+    
         if(pro_id=="wowgo"){
                 Wowgo();
         }
@@ -76,6 +79,26 @@ function initProject(pro_id){
            ;
         }
 }
+
+
+
+/* 监控scroll以显示 top btn  控制搜索框的显示*/
+$(window).scroll(function(){
+    if(_page_flag=="project"){
+        scroll_t=$(window).scrollTop();
+        win_h=$(window).height();
+        box_content=$("#box-content");
+        doc_h=$(document).height();
+        if($(box_content).scrollTop()<(scroll_t-300)){
+            controlBtnTop("show");
+            
+        }
+        else{
+            controlBtnTop("hide");
+        }
+        
+    }
+})
 
 
 
@@ -125,7 +148,6 @@ function refreash(){
     $("#result").append('<div id="project-template" class="card-row-project"><div class="card-row-project-block"><h5 class="card-row-project-title"></h5><p class="card-row-project-text"></div></div>');
     var curid = $(".current").attr("id");
     $("#"+curid).removeClass("current");
-	
 }
 _time_delay=250;
 function Wowgo(){
@@ -288,7 +310,7 @@ function Hospital(){
     var result = $("#result");
     var graph1 = project_template.clone();
     setTimeout(function(){
-        graph1.find(".card-row-project-text").text("中薪国际商业保理（深圳）有限公司是一家专注于保障农民工群体工资支付的社会科技企业，公司以“科技+产业+金融+公益”的创新战略打造薪公益平台，致力于让天下没有难领的薪水。平台基于“智能SaaS薪酬结算系统”，运用智能合约、融合支付、实名认证等7大核心技术，实现工资直接由发薪专户发放到农民工工资卡，解决工程建设领域中层层分包导致的欠薪风险；同时通过连接银行、保理公司等金融机构为企业提供“薪酬垫付服务”，资金流向可追溯，解决信息不对称问题，帮助企业更好获取专项融资授信，克服资金周转难题，保障按时足额发薪。");
+        graph1.find(".card-row-project-text").text("十年前汶川地震，应急医疗队赶赴现场救死扶伤，十年后飞行医院沿承使命，整合四川大学华西医院、上海市东方医院、广东省第二人民医院等多家医疗结构，以支医扶贫为核心，针对全国388.2万户贫困家庭看病难、看病贵的问题，携带集成式医疗设备，以义诊服务、远程医疗、医生培训、紧急救援四项功能进行服务的移动医疗队成立了，并具备全天候、多功能、强适应性的救治能力。");
         graph1.css("opacity","1");
 		result.append(graph1);
 		// graph1.animate({opacity:1},1000);
@@ -296,11 +318,19 @@ function Hospital(){
     var graph2 = project_template.clone();
      setTimeout(function(){
         var graph2 = project_template.clone();
-        graph2.find(".card-row-project-text").text("已拥有16项软著权，并获得1000 万元天使轮融资，与中国银联、平安银行、光大银行、南通二建、中崇集团、国民技术、第一财经等多家机构达成战略合作。截止2018年8月累计发薪人次达119万，结算金额超过33亿元，薪酬垫付金额近10亿元。高度响应国务院“2020年农民工薪资基本无拖欠”的战略目标，是欠薪问题的根治性方案，保障劳有所得，用薪守护千万农民家庭幸福生活。");
+        graph2.find(".card-row-project-text").text("目前，团队已达凉山州昭觉县、甘孜州色达县等31个国家级贫困县，累计救治72000名高原村医，其中，高原藏彝村民高达2/3。");
         graph2.css("opacity","1");
 		result.append(graph2);
 		// graph2.animate({opacity:1},1000);
     }, _time_delay * 1);
+    var graph3 = project_template.clone();
+     setTimeout(function(){
+        var graph3 = project_template.clone();
+        graph3.find(".card-row-project-text").text("已累计获得3308万元资金支持，被人民日报、CCTV等191家媒体报道。2018年5月，更是通过了世界卫生组织认证，成为全球首个非军方最高级别国际医疗队。");
+        graph3.css("opacity","1");
+		result.append(graph3);
+		// graph2.animate({opacity:1},1000);
+    }, _time_delay * 2)
     project_template.remove();
 }
 

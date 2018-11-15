@@ -50,7 +50,7 @@ function autoClick(id){
     if(id!=null){
         setTimeout(function(){
             $("#"+id).click();
-        },500)
+        },800)
     }
 }
 
@@ -88,7 +88,7 @@ function createArticle(obj){
         });
     }
     
-    d_close=createBtnClose();
+    
 
     box=$(".box-content");
     box_article=null;
@@ -101,20 +101,23 @@ function createArticle(obj){
             d_caption=$('<h3 class="card-inside-news-caption">'+data.title+'</h3>');
             d_time=$('<span class="card-inside-news-time">'+(new Date(data.time).toLocaleDateString())+'</span>')
             d_article=$('<div class="article">'+data.content+'</div>');
+            $(d_article).find("img").addClass("img-responsive");
             $(box_article).append(d_caption);
             $(box_article).append(d_time);
             $(box_article).append(d_article);
 
             $(box_article).addClass("article-block");
             $(box).append(box_article);
+            d_close=createBtnClose();
             $(box).append(d_close);
+            showNews();
         }
     });
-    setTimeout("showNews()",100);
+    // setTimeout("showNews()",500);
 }
 
 function showNews(){
-    $(box_article).addClass("article-block-full");
+    // $(box_article).addClass("article-block-full");
     _pre_scroll=$(window).scrollTop();
     $(box_article).css("top",_pre_scroll);
     // toTop();
@@ -134,13 +137,14 @@ function createSearch(){
 }
 
 function doInitAjax(){
+    box=$(".box-content")[0];
+    addToTopBtn(box);
     $.ajax({
         type:"get",
         url: "http://118.24.43.47:8089/news_preview?N=9",
         dataType: "json",
         success: function(data){
             cnt=0;
-            box=$(".box-content")[0];
             $.each(data, function (index, item) { 
                  cnt+=1;
                  img_loc=cnt;
@@ -157,7 +161,8 @@ function doInitAjax(){
                        $(card_content).css("margin-left","4.5vw");
                     }
                     $(box).append(news_block);
-                 addToTopBtn(box);
+                 
+                 
             });
         }
     });

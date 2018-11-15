@@ -46,7 +46,7 @@
     left: 0px;
     width: 100%;
     height: auto;
-    transform: scale(0,0);
+    transform: scale(1,1);
     overflow:hidden;
     background: white;
     opacity: 0.92;
@@ -55,6 +55,7 @@
     border-radius: 20px;
     padding: 2em;
     z-index: 99999999;
+    animation: to_big 0.5s;
 }
 
 .article-block-full{

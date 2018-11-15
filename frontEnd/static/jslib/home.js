@@ -140,6 +140,7 @@ function startScroll(){
 
 $(window).resize(function(){
     resizeBox();
+    locateNavBar();
 })
 
 $(document).ready(function () {
@@ -157,7 +158,21 @@ function resizeBox(){
         "height":_height
     });
 }
+function locateNavBar(){
+    if(_page_flag=="tools"){
+        w_box_content=$("#box-content").width();
+        navbar_1=$(".nav-box-tools-1");
+        navbar_2=$(".nav-box-tools-2");
+        b_result_t=$("#result-tools");
+        w_navbar_1=$(navbar_1).width();
+        w_navbar_2=$(navbar_2).width();
+        w_b_result=$(b_result_t).width();
+        $(navbar_1).css("margin-left",(w_box_content-w_navbar_1)/2);
+        $(navbar_2).css("margin-left",(w_box_content-w_navbar_2)/2);
+        $(b_result_t).css("margin-left",(w_box_content-w_b_result)/2);
 
+    }
+}
 function createNewsBlock(id,img_loc,caption,time,resume,img){
     card_content=$('<div class="card-content card-content-news" onclick="newsBlockClick(this)" id="'+id+'">'+'</div>');
     box_caption=$('<h3 class="card-inside-news-caption">'+caption+'</h2>');
@@ -284,3 +299,26 @@ function addToTopBtn(obj){
         $(box_to_top).css("opacity",0.92);
     }, 800);
 }
+
+// $("form#box-search-info").submit(function (e) { 
+//     e.preventDefault();
+//     infoSearchClick();
+//     alert("aaaa");
+// });
+
+$(document).keyup(function(event){  
+    if(event.keyCode ==13){  
+      if(_page_flag=="index"||_page_flag=="info"){
+          company_name=$('input[name="corpname"]').val();
+          if(company_name==""){;}
+          else{
+              if(_page_flag=="index"){
+                infoSearchClick();
+              }
+              else{
+                infoSearchClickFull();
+              }
+          }
+      }
+    }  
+  });    
