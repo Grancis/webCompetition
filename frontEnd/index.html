@@ -11,38 +11,43 @@
     <link rel="stylesheet" type="text/css" href="./static/styles/nav.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/home.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/info_search.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/corp_info.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_news.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_tools.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_project.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/to_tools.css" />
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="./static/styles/news.css" /> -->
+    <script src="https://cdn.bootcss.com/d3/4.13.0/d3.min.js"></script>
     <script src="./static/jslib/nav.js"></script>
     <script src="./static/jslib/home.js"></script>
     <script src="./static/jslib/info_search.js"></script>
+    <script src="./static/jslib/corp_info.js"></script>
     <script src="./static/jslib/to_news.js"></script>
     <script src="./static/jslib/to_tools.js"></script>
     <script src="./static/jslib/to_project.js"></script>
+    <script src="./static/jslib/investment.js"></script>
+    <script src="./static/jslib/position.js"></script>
+    <script src="./static/jslib/corperation.js"></script>
+    <!-- <script src="./static/jslib/d3.js"></script> -->
 </head>
 <body>
     <div class="box-logo">
-            <img class="img-responsive" id="logo" src="./static/image/LOGO.png">
-            <div class="title-logo">
-                <label id="title-logo-one">创业盒子</label>
-                <label id="title-logo-two">教你如何开公司</label>
-            </div>
+        <img class="img-responsive" id="logo" src="./static/image/LOGO.png">
+        <div class="title-logo">
+            <label id="title-logo-one">创业盒子</label>
+            <label id="title-logo-two">教你如何开公司</label>
         </div>
+    </div>
 
-        <div class="box-nav" role="navigation">
-            <ul>
-                <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="index.html">首页</a></li>
-                <li id="nav-info" onclick="changePage(this)"><a href="javascript:toInfoFromNav()">企业信息</a></li>
-                <li id="nav-news" onclick="changePage(this)"><a href="javascript:toNewsFromNav()">热点新闻</a></li>
-                <li id="nav-project" onclick="changePage(this)"><a href="javascript:toProjectFromNav('wowgo')">项目展示</a></li>
-                <li id="nav-tools" onclick="changePage(this)"><a href="javascript:toToolsFromNav()">创业工具</a></li>
-            </ul>
-        </div>
+    <div class="box-nav" role="navigation">
+        <ul>
+            <li id="nav-home" class="nav-active" onclick="changePage(this)"><a href="index.html">首页</a></li>
+            <li id="nav-info" onclick="changePage(this)"><a href="javascript:toInfoFromNav()">企业信息</a></li>
+            <li id="nav-news" onclick="changePage(this)"><a href="javascript:toNewsFromNav()">商业新闻</a></li>
+            <li id="nav-project" onclick="changePage(this)"><a href="javascript:toProjectFromNav('wowgo')">项目展示</a></li>
+            <li id="nav-tools" onclick="changePage(this)"><a href="javascript:toToolsFromNav(1)">创业工具</a></li>
+        </ul>
+    </div>
     <div class="box-body">
-        
-
         <div class="box-card">
 
             <div class="card card-center scroll-transition card-info card-center-animate" id="card-info" onmouseover="stopScroll()" onmouseout="startScroll()">
@@ -50,13 +55,13 @@
                 <span class="card-caption" id="card-caption-info">
                     企业信息查询
                 </span>
-                <form class="card-content box-search box-search-info" id="box-search-info">
+                <div class="card-content box-search box-search-info" id="box-search-info" action="">
                     <input class="search-input" id="search-input-info" name="corpname" placeholder="搜索公司名">
                     
                     <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
                             <span class="glyphicon glyphicon-search"></span>
                     </div>
-                </form>
+                </div>
             </div>
 
             <div class="card card-beside card-beside-left scroll-transition card-news card-beside-animate" id="card-news">
@@ -99,8 +104,19 @@
                     项目展示
                 </span>
 
-                <div class="box-project-contents" onclick="projectBlockClick('doctorCan')" id="doctorCan">
-                    <div class="card-content card-content-project">
+                <div class="box-project-contents" >
+
+                    <div class="card-content card-content-project" onclick="projectBlockClick('wowgo')" id="wowgo">
+                        <div class="card-inside card-inside-image">
+                            <img src="./static/image/project-5.png" class="img-responsive">
+                        </div>
+                        <div class="card-inside card-inside-describe">
+                            <p class="card-inside-descibe-caption">WOWGO</p>
+                            <p class="card-inside-descibe-resume">国内唯一的规范化路线体系</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content card-content-project" onclick="projectBlockClick('doctorCan')">
                         <div class="card-inside card-inside-image">
                             <img src="./static/image/project-1.png" class="img-responsive">
                         </div>
@@ -120,15 +136,6 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick('salary')" id="salary">
-                        <div class="card-inside card-inside-image">
-                            <img src="./static/image/project-3.png" class="img-responsive">
-                        </div>
-                        <div class="card-inside card-inside-describe">
-                            <p class="card-inside-descibe-caption">薪公益</p>
-                            <p class="card-inside-descibe-resume">“科技+产品+金融+公益”薪公益平台</p>
-                        </div>
-                    </div>
 
                     <div class="card-content card-content-project" onclick="projectBlockClick('hospital')" id="hospital">
                         <div class="card-inside card-inside-image">
@@ -140,15 +147,17 @@
                         </div>
                     </div>
 
-                    <div class="card-content card-content-project" onclick="projectBlockClick('this')" id="wowgo">
+                    <div class="card-content card-content-project" onclick="projectBlockClick('salary')" id="salary">
                         <div class="card-inside card-inside-image">
-                            <img src="./static/image/project-5.png" class="img-responsive">
+                            <img src="./static/image/project-3.png" class="img-responsive">
                         </div>
                         <div class="card-inside card-inside-describe">
-                            <p class="card-inside-descibe-caption">WOWGO</p>
-                            <p class="card-inside-descibe-resume">国内唯一的规范化路线体系</p>
+                            <p class="card-inside-descibe-caption">薪公益</p>
+                            <p class="card-inside-descibe-resume">“科技+产品+金融+公益”薪公益平台</p>
                         </div>
                     </div>
+                    
+
                 </div>
 
             </div>
@@ -171,7 +180,7 @@
                 </div>
 
 
-                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick('1')">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             工商注册
@@ -185,7 +194,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick('2')">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             知识产权
@@ -199,7 +208,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick('3')">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             经营许可
@@ -213,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick('4')">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             人事管理
@@ -227,7 +236,7 @@
                     </div>
                 </div>
 
-                <div class="card-content card-content-tools" onclick="toolsBlockClick(this)">
+                <div class="card-content card-content-tools" onclick="toolsBlockClick('5')">
                     <div class="card-inside card-inside-tools">
                         <span class="card-caption card-caption-inside card-caption-inside-tools">
                             投资融资
@@ -282,7 +291,12 @@
             <div id="result">
 
             </div>
+            <div id="result-tools">
+
+            </div>
     </div>
+
+    <div class="box-content-full"></div>
 
 </body>
 </html>
