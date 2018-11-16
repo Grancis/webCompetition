@@ -1,21 +1,12 @@
 function position(corpGraphId){
-	// nav();
 	fresh();
 	$("#position").addClass("current"); 
 	nav2();
-	console.log(corpGraphId);
-    // setTimeout(function(){
-    //     var card=createInv();
-    //     $("#result").append(card);
-    //     $(card).animate({opacity:1},200);
-    // },200);
-    // setTimeout(function(){
-    //     load_relation_graph(2, corpGraphId);
-    // },250);
     var card=createPos();
     $("#result").append(card);   
     setTimeout(function(){
-         load_relation_graph2(3, corpGraphId);
+        addBackBtn();
+        load_relation_graph2(3, corpGraphId);
     },250);
 }
 

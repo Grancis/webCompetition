@@ -15,7 +15,8 @@ function investment(corpGraphId){
     var card=createInv();
     $("#result").append(card);   
     setTimeout(function(){
-         load_relation_graph(3, corpGraphId);
+        addBackBtn();
+        load_relation_graph(3, corpGraphId);
     },250);
 }
 

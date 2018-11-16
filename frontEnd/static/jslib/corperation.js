@@ -15,7 +15,8 @@ function corperation(corpGraphId){
     var card=createCor();
     $("#result").append(card);   
     setTimeout(function(){
-         load_relation_graph3(3, corpGraphId);
+        addBackBtn();
+        load_relation_graph3(3, corpGraphId);
     },250);
 }
 

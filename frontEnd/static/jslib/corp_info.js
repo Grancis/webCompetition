@@ -28,8 +28,10 @@ function corp_info(corpGraphId){
 					data.address,
 					data.field
 					);
+				
 				$("#result").append(card);
 				$(card).animate({opacity:1},200);
+				addBackBtn();
 			},150);
 			setTimeout(function(){
 				card=createCorpController(data.name);
