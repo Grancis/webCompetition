@@ -3,6 +3,9 @@ function toolsBlockClick(clicked_id) {
 }
 
 function toToolsFromNav(tool_id) {
+    nav_dot=$("#nav-tools");
+    $(nav_dot).click();
+
 
     // window.location.href="./tools.html"
     $("body").css("overflow-y", "scroll");
