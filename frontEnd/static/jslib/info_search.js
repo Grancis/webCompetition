@@ -135,7 +135,7 @@ function infoSearchClickFull(s_keyword){
                  if(item.irgOpts){
                      item.name=item.name+"【该公司被列入经营异常名录】";
                  }
-                 if(cnt<10){
+                 if(cnt<3){
                     setTimeout(function(){
                         card=createCompanyBlock(item.graphId,item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
                         $(box_content).append(card);
@@ -147,7 +147,7 @@ function infoSearchClickFull(s_keyword){
                         card=createCompanyBlock(item.graphId,item.name,item.type,item.reg_auth,item.id,item.state,item.reg_date);
                         $(box_content).append(card);
                         $(card).animate({opacity:1},500);
-                    },250*10);
+                    },250*3);
                  }
 
             });
