@@ -56,8 +56,9 @@
                     企业信息查询
                 </span>
                 <div class="card-content box-search box-search-info" id="box-search-info" action="">
-                    <input class="search-input" id="search-input-info" name="corpname" placeholder="搜索公司名">
-                    
+                    <input class="search-input" id="search-input-info" name="corpname" list="hint" placeholder="搜索公司名">
+                    <datalist id="hint"></datalist>
+                    <script>getSearchHint();</script>
                     <div class="search-btn" id="search-btn-info" onclick="infoSearchClick()">
                             <span class="glyphicon glyphicon-search"></span>
                     </div>

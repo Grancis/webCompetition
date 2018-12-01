@@ -34,17 +34,17 @@ function corp_info(corpGraphId){
 				addBackBtn();
 			},150);
 			setTimeout(function(){
-				card=createCorpController(data.name);
+				card=createCorpController(data.shareholders);
 				$("#result").append(card);
 				$(card).animate({opacity:1},200);
 			},300);
 			setTimeout(function(){
-				card=createException(data.name);
+				card=createException(data.irgOpts);
 				$("#result").append(card);
 				$(card).animate({opacity:1},200);
 			},450);
 			setTimeout(function(){
-				card=createChange(data.name);
+				card=createChange(data.modifications);
 				$("#result").append(card);
 				$(card).animate({opacity:1},200);
 			},600);
@@ -85,23 +85,52 @@ function createBasicInfo(id,name,type,legal_person,reg_capt,
     return c_card;
 }
 
-function createCorpController(name){
-	c_card=$('<div class="card-company" style="opacity:1"> <table class="table corp-info"><tbody></tbody></div>');
+function createCorpController(sh){
+	c_card=$('<div class="card-company" style="opacity:1">');
 	$(c_card).append('<h5 class="card-title">股权结构</h5>');
-
+	c_table=$('<table class="table" style="margin-top:30px;"></table></div>');
+	c_thead=$('<thead><tr><th>序号</th><th>股东名称</th><th>股东类型</th><th>证照/证件类型</th><th>证照/证件号码</th></tr></thead>');
+	c_tbody=$('<tbody></tbody>');
+	for (var i = 0; i < sh.length; i++) {
+		var sher = sh[i];
+		console.log(sh);
+		$(c_tbody).append('<tr><td>'+(i + 1)+'</td><td>'+sher.sh_name+'</td><td>'+sher.sh_type+'</td><td>非公示项</td><td>非公示项</td></tr>');
+	}
+	$(c_table).append(c_thead);
+	$(c_table).append(c_tbody);
+	$(c_card).append(c_table);
 	return c_card;
 }
 
-function createException(name){
-	c_card=$('<div class="card-company" style="opacity:1"> <table class="table corp-info"><tbody></tbody></div>');
+function createException(irgs){
+	c_card=$('<div class="card-company" style="opacity:1">');
 	$(c_card).append('<h5 class="card-title">经营异常</h5>');
-
+	c_table=$('<table class="table" style="margin-top:30px;"></table></div>');
+	c_thead=$('<thead><tr><th>序号</th><th>列入经营异常名录原因</th><th>列入日期</th><th>作出决定机关(列入)</th><th>移出经营异常名录原因</th><th>移出日期</th><th>作出决定机关(移出)</th><th>移出日期</th></tr></thead>');
+	c_tbody=$('<tbody></tbody>');
+	for (var i = 0; i < irgs.length; i++) {
+		var irgOpt = irgs[i];
+		$(c_tbody).append('<tr><td>'+(i + 1)+'</td><td>'+irgOpt.irgReason+'</td><td>'+irgOpt.irgDate+'</td><td>非公示项</td><td>非公示项</td><td>'+irgOpt.deIrgAuth+'</td></tr>');
+	}
+	$(c_table).append(c_thead);
+	$(c_table).append(c_tbody);
+	$(c_card).append(c_table);
 	return c_card;
 }
 
-function createChange(name){
-	c_card=$('<div class="card-company" style="opacity:1"> <table class="table corp-info"><tbody></tbody></div>');
+function createChange(modifications){
+	var modis = JSON.parse(modifications);
+	c_card=$('<div class="card-company" style="opacity:1">');
 	$(c_card).append('<h5 class="card-title">变更信息</h5>');
-
+	c_table=$('<table class="table" style="margin-top:30px;"></table></div>');
+	c_thead=$('<thead><tr><th>序号</th><th>变更事项</th><th>变更前内容</th><th>变更后内容</th><th>变更日期</th></tr></thead>');
+	c_tbody=$('<tbody></tbody>');
+	for (var i = 0; i < modis.length; i++) {
+		var m = modis[i];
+		$(c_tbody).append('<tr><td>'+(i + 1)+'</td><td>'+m.变更事项+'</td><td>'+m.变更前内容+'</td><td>'+m.变更后内容+'</td><td>'+m.变更日期+'</td></tr>');
+	}
+	$(c_table).append(c_thead);
+	$(c_table).append(c_tbody);
+	$(c_card).append(c_table);
 	return c_card;
 }

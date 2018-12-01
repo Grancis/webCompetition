@@ -499,7 +499,7 @@ body{
 .box-content{
     z-index: 2000;
     position: absolute;
-    top: 25vh;
+    top: 30vh;
     width: 60%;
     left: 20%;
     /* text-align: center; */

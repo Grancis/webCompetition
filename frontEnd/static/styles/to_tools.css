@@ -65,7 +65,7 @@
     margin: 0 auto;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.92);
-    /* width: 70%; */
+    width: 70%;
     margin-top: 30px;
     animation: to_big 0.5s;
 }
@@ -74,7 +74,7 @@
     padding: 20px 30px 20px 30px;
     font-size: 13px;
     line-height: 15px;
-    width: 100%;
+    
 }
 
 .card-row-tools-title{
@@ -97,5 +97,5 @@
 #result-tools{
     position: absolute ;
     top: 100px;
-    width: 70%;
+    left: 7.5vw;
 }

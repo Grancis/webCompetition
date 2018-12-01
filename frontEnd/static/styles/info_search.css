@@ -69,3 +69,22 @@
     font-size: 1.5vw;
     margin-bottom:20px;
 }
+
+#hot-list{
+    margin:70px 10px 30px 10px; 
+}
+
+#hot-item{
+    width:150px;
+    margin:30px 5px 10px 5px;
+    background:#f05f26;
+    
+    color: rgb(233, 231, 231);
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0 15px 0 0;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

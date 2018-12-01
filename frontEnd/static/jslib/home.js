@@ -163,13 +163,10 @@ function locateNavBar(){
         w_box_content=$("#box-content").width();
         navbar_1=$(".nav-box-tools-1");
         navbar_2=$(".nav-box-tools-2");
-        b_result_t=$("#result-tools");
         w_navbar_1=$(navbar_1).width();
         w_navbar_2=$(navbar_2).width();
-        w_b_result=$(b_result_t).width();
         $(navbar_1).css("margin-left",(w_box_content-w_navbar_1)/2);
         $(navbar_2).css("margin-left",(w_box_content-w_navbar_2)/2);
-        $(b_result_t).css("margin-left",(w_box_content-w_b_result)/2);
 
     }
 }

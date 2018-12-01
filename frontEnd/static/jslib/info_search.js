@@ -43,6 +43,7 @@ function infoSearchClick(){
         $(box_search).remove();
     box_search=createInfoSearch();
     $(box_content).append(box_search);
+    getSearchHint();
     $(box_search).css("transition-duration","0.3s");
     if(searchKeyword==""){;}
     else{
@@ -76,7 +77,7 @@ function toInfoFromNav(){
     box_search=createInfoSearch()
     $(box_content).append(box_search);
     $(box_search).css("transition-duration","0.3s");
-
+    getSearchHint();
     box_toTop=createToTop();
     $(box_content).append(box_toTop);
     
@@ -93,17 +94,109 @@ function toInfoFromNav(){
 
 function createInfoSearch(){
     box_search=$('<div class="card-content box-search box-search-info box-search-info-full" id="box-search-info"></div>');
-    e_input=$('<input class="search-input" id="search-input-info" name="corpname" placeholder="搜索公司名">');
+    e_input=$('<input class="search-input" id="search-input-info" name="corpname" list="hint" placeholder="搜索公司名！">');
     e_btn=$('<div class="search-btn" id="search-btn-info" onclick="infoSearchClickFull()"></div>');
     e_icon=$('<span class="glyphicon glyphicon-search"></span>');
-
+    e_hint=$('<datalist id="hint"></datalist>');
+    e_hot_list=$('<div id="hot-list"></div>')
+    $(e_input).append(e_hint);
     $(e_btn).append(e_icon);
     box_search.append(e_input);
     box_search.append(e_btn);
-
+    box_search.append(e_hot_list);
     return box_search;
 }
 
+function getSearchHint(){
+    // 获取输入提示
+    e_input=$('#search-input-info');
+    e_hint=$('#hint');
+    $(e_input).keyup(function () {
+        var lastKeyword = "";
+        var curKeyword = $("#search-input-info").val();
+        lastKeyword = curKeyword;
+        setTimeout(function () {
+            console.log("hint");
+            var history = getHistory();
+            if (lastKeyword == curKeyword && curKeyword != '') {
+                $.ajax({
+                    type: 'get',
+                    url: "http://118.24.43.47:8089/hint",
+                    dataType: 'json',
+                    data: {keyword: curKeyword},
+                    success: function (data) {
+                        e_hint.empty();
+                        for(var i = 0; i < history.length; i++) {
+                            e_hint.append("<option>" + history[i] + "</option>");
+                        }
+                        for(var i = 0; i < data.length; i++) {
+                            e_hint.append("<option>" + data[i].corpName + "</option>");
+                        }
+                    }
+                });
+            }
+        }, 1000);
+    });
+    // 加载热搜榜
+    $.ajax({
+        type: 'get',
+        url: "http://118.24.43.47:8089/hot_corps",
+        dataType: 'json',
+        success: function (data) {
+            var hot_list = $("#hot-list");
+            $.each(data, function (index, item){
+                console.log(item);
+                setTimeout(function(){
+                    hot_item = $("<div id='hot-item' class='label label-default col-md-2' onclick='loadMoreInfo(" + item.id + ")'>" + item.name + "</div>");
+                    hot_list.append(hot_item);
+                    $(hot_item).animate({opacity:1},500);
+                },500);    
+            });   
+        }
+    });
+}
+
+function getHistory() {
+    var history_loc = $("#hint");
+    var history = localStorage.getItem("history");
+    if (history == null) {
+        history = [];
+    }
+    else {
+        history = JSON.parse(history);
+        console.log(history);
+    }
+    return history;
+}
+
+function addToHistory(keyword){
+    console.log("addToHistory:" + keyword);
+    var push_flag = true; // 仅当搜索历史不存在该关键词才添加至历史
+    var history = localStorage.getItem("history");
+    // 从本地存储中获取搜索历史
+    if (history == null) {
+        history = [];
+    }
+    else {
+        history = JSON.parse(history);
+    }
+    // 检查搜索历史中是否存在该关键词
+    for (var i = 0; i < history.length; i++) {
+        console.log("history[" + i + "] = " + history[i]);
+        if (keyword == history[i]) {
+            push_flag = false;
+        }
+    }
+    // 添加至搜索历史
+    if (push_flag) {
+        if (history.length >= 5) {
+            history.shift();
+        }
+        history.push(keyword);
+    }    
+    // localStorage 存储类型仅能为字符串
+    localStorage.setItem("history", JSON.stringify(history));
+}
 
 /* do search */
 function infoSearchClickFull(s_keyword){
@@ -116,6 +209,7 @@ function infoSearchClickFull(s_keyword){
         searchKeyword=$('input[name="corpname"]').val();
         window.sessionStorage.keyword = searchKeyword;
     }
+    addToHistory(searchKeyword);
     var searchURL = "http://118.24.43.47:8089/search?keyword="+searchKeyword;
     // var searchData = {keyword: searchKeyword};
     // console.log(searchKeyword);
@@ -163,7 +257,6 @@ function loadMoreInfo(graphId){
 
 function createCompanyBlock(graphId,name,type,reg_auth,id,state,reg_date){
     b_card=$('<div class="card-company" style="opacity:1;" onclick="loadMoreInfo(&quot;'+graphId+'&quot;)"'+'></div>');
-    /* onclick 事件待添加 */
     h_title=$('<h5 class="card-title company_name">'+name+'</h5>');
     p_type=$('<p class="tpye">'+type+'</p>');
     p_reg_auth=$('<p class="reg_auth">'+reg_auth+'</p>');
@@ -282,6 +375,7 @@ function goBack(){
     $('#box-content').empty();
     box_search=createInfoSearch();
     $('#box-content').append(box_search);
+    getSearchHint();
     keyword = window.sessionStorage.keyword;
     console.log("keyword: " + keyword);
     infoSearchClickFull(keyword);
